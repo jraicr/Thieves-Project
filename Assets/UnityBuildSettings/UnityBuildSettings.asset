@@ -1,0 +1,265 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d5886119a5c7b34d8872ab527ca3e1b, type: 3}
+  m_Name: UnityBuildSettings
+  m_EditorClassIdentifier: 
+  _basicSettings:
+    baseBuildFolder: bin
+    buildPath: $RELEASE_TYPE/$ARCHITECTURE
+    openFolderPostBuild: 1
+  _productParameters:
+    buildCounter: 6
+    lastGeneratedVersion: 1.0.884.5741
+    version: 1.0.$DAYSSINCE("January 1, 2015").$SECONDS
+    autoGenerate: 1
+  _releaseTypeList:
+    releaseTypes:
+    - typeName: Master Server
+      bundleIndentifier: 
+      productName: ' Thieves Assault Game Server'
+      developmentBuild: 0
+      allowDebugging: 0
+      enableHeadlessMode: 1
+      customDefines: 
+      sceneList:
+        enabledScenes:
+        - filePath: Assets/Master Server/Master Server.unity
+    - typeName: Spawner Server
+      bundleIndentifier: 
+      productName: ' Thieves Assault Spawner Server'
+      developmentBuild: 0
+      allowDebugging: 0
+      enableHeadlessMode: 1
+      customDefines: 
+      sceneList:
+        enabledScenes:
+        - filePath: Assets/Spawner Server/Spawner.unity
+    - typeName: Game Server
+      bundleIndentifier: 
+      productName: ' Thieves Assault Game Server'
+      developmentBuild: 0
+      allowDebugging: 0
+      enableHeadlessMode: 1
+      customDefines: 
+      sceneList:
+        enabledScenes:
+        - filePath: Assets/Game Server/Game Server.unity
+    - typeName: Client
+      bundleIndentifier: 
+      productName: ' Thieves Assault Game Client'
+      developmentBuild: 0
+      allowDebugging: 0
+      enableHeadlessMode: 1
+      customDefines: 
+      sceneList:
+        enabledScenes:
+        - filePath: Assets/Client/Game Client.unity
+  _platformList:
+    platforms:
+    - enabled: 1
+      distributionList:
+        distributions: []
+      architectures:
+      - target: 25
+        name: Linux Universal
+        enabled: 1
+      - target: 17
+        name: Linux x86
+        enabled: 0
+      - target: 24
+        name: Linux x64
+        enabled: 0
+      variants: []
+      platformName: Linux
+      binaryNameFormat: '{0}.x86'
+      dataDirNameFormat: '{0}_Data'
+      targetGroup: 1
+    - enabled: 0
+      distributionList:
+        distributions: []
+      architectures:
+      - target: 2
+        name: OSX Universal
+        enabled: 1
+      - target: 4
+        name: OSX Intel
+        enabled: 0
+      - target: 27
+        name: OSX Intel64
+        enabled: 0
+      variants: []
+      platformName: OSX
+      binaryNameFormat: '{0}.app'
+      dataDirNameFormat: '{0}.app/Contents'
+      targetGroup: 1
+    - enabled: 1
+      distributionList:
+        distributions: []
+      architectures:
+      - target: 5
+        name: Windows x86
+        enabled: 0
+      - target: 19
+        name: Windows x64
+        enabled: 1
+      variants: []
+      platformName: PC
+      binaryNameFormat: '{0}.exe'
+      dataDirNameFormat: '{0}_Data'
+      targetGroup: 1
+  _projectConfigurations:
+    configSet:
+      _Buckets: 0000000009000000ffffffffffffffffffffffff0d000000ffffffffffffffff1200000002000000ffffffff080000000b000000ffffffff06000000ffffffffffffffffffffffff040000000f000000ffffffffffffffffffffffff0e00000013000000ffffffffffffffff10000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff0500000011000000
+      _HashCodes: d661dd5a06c8a65eeb480b590140cc3ac176302dd0503c6100eba60f31dfc918478f35293bdddc1d46e27a247628b3427b660c2d9135e17d31eb6928802fe36ab029c1748126d30c974ef305ebdf77780000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      _Next: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff030000000c00000007000000ffffffff010000000a000000ffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      _Count: 20
+      _Version: 20
+      _FreeList: -1
+      _FreeCount: 0
+      _Keys:
+      - Master Server/Linux/Linux Universal
+      - Master Server/Linux
+      - Master Server/PC/Windows x64
+      - Master Server/PC
+      - Master Server
+      - Spawner Server/Linux/Linux Universal
+      - Spawner Server/Linux
+      - Spawner Server/PC/Windows x64
+      - Spawner Server/PC
+      - Spawner Server
+      - Game Server/Linux/Linux Universal
+      - Game Server/Linux
+      - Game Server/PC/Windows x64
+      - Game Server/PC
+      - Game Server
+      - Client/Linux/Linux Universal
+      - Client/Linux
+      - Client/PC/Windows x64
+      - Client/PC
+      - Client
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      _Values:
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys:
+        - Master Server/Linux/Linux Universal
+      - enabled: 0
+        childKeys: []
+      - enabled: 0
+        childKeys:
+        - Master Server/PC/Windows x64
+      - enabled: 1
+        childKeys:
+        - Master Server/Linux
+        - Master Server/PC
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys:
+        - Spawner Server/Linux/Linux Universal
+      - enabled: 0
+        childKeys: []
+      - enabled: 0
+        childKeys:
+        - Spawner Server/PC/Windows x64
+      - enabled: 1
+        childKeys:
+        - Spawner Server/Linux
+        - Spawner Server/PC
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys:
+        - Game Server/Linux/Linux Universal
+      - enabled: 0
+        childKeys: []
+      - enabled: 0
+        childKeys:
+        - Game Server/PC/Windows x64
+      - enabled: 1
+        childKeys:
+        - Game Server/Linux
+        - Game Server/PC
+      - enabled: 0
+        childKeys: []
+      - enabled: 0
+        childKeys:
+        - Client/Linux/Linux Universal
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys:
+        - Client/PC/Windows x64
+      - enabled: 1
+        childKeys:
+        - Client/Linux
+        - Client/PC
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+    showViewOptions: 0
+    showConfigs: 0
+    showBuildInfo: 0
+    hideDisabled: 1
+    treeView: 0
+    selectedKeyChain: Client/PC/Windows x64
+  _preBuildActions:
+    buildActions: []
+  _postBuildActions:
+    buildActions: []

@@ -495,7 +495,8 @@ PlayerSettings:
   webGLUseEmbeddedResources: 0
   webGLUseWasm: 0
   webGLCompressionFormat: 1
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    1: BUILD_TYPE_CLIENT;BUILD_PLATFORM_PC;BUILD_ARCH_WINDOWSX64
   platformArchitecture: {}
   scriptingBackend: {}
   incrementalIl2cppBuild: {}

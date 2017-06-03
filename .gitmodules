@@ -1,3 +1,6 @@
 [submodule "submodules/barebones-masterserver"]
 	path = submodules/barebones-masterserver
 	url = https://github.com/alvyxaz/barebones-masterserver
+[submodule "submodules/unity-build"]
+	path = submodules/unity-build
+	url = https://github.com/jraicr/unity-build
