@@ -117,6 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 497164830}
   - component: {fileID: 497164829}
+  - component: {fileID: 497164831}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -135,15 +136,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13df84eab619a384498b917fbdc7b87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LogLevel: 2
-  SpawnControllerLogLevel: 2
-  DefaultMachineIp: 127.0.0.1
+  LogLevel: 0
+  SpawnControllerLogLevel: 0
+  DefaultMachineIp: 192.168.1.9
   DefaultExePath: 
   DefaultSpawnInBatchmode: 0
   MaxSpawnedProcesses: 25
   SpawnWebglServers: 0
   DontDestroyIfStarted: 1
-  KillProcessesWhenSpawnerQuits: 1
+  KillProcessesWhenSpawnerQuits: 0
   AutoStartInEditor: 0
   OverrideExePathInEditor: 0
   ExePathFromEditor: C:/Please set your own path
@@ -160,3 +161,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &497164831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 497164828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f4cb439243992949b9b12a35c4760c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogLevel: 0
+  ReadMasterServerAddressFromCmd: 1
+  ServerIp: 192.168.1.9
+  ServerPort: 5000
+  ConnectOnStart: 1
+  MinTimeToConnect: 0.5
+  MaxTimeToConnect: 4
+  TimeToConnect: 0.5

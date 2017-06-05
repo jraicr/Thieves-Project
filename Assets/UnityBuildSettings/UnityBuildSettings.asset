@@ -13,18 +13,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _basicSettings:
     baseBuildFolder: bin
-    buildPath: $RELEASE_TYPE/$ARCHITECTURE
+    buildPath: $RELEASE_TYPE/
     openFolderPostBuild: 1
   _productParameters:
-    buildCounter: 6
-    lastGeneratedVersion: 1.0.884.5741
+    buildCounter: 0
+    lastGeneratedVersion: 1.0.885.516
     version: 1.0.$DAYSSINCE("January 1, 2015").$SECONDS
-    autoGenerate: 1
+    autoGenerate: 0
   _releaseTypeList:
     releaseTypes:
     - typeName: Master Server
       bundleIndentifier: 
-      productName: ' Thieves Assault Game Server'
+      productName: masterServer
       developmentBuild: 0
       allowDebugging: 0
       enableHeadlessMode: 1
@@ -34,7 +34,7 @@ MonoBehaviour:
         - filePath: Assets/Master Server/Master Server.unity
     - typeName: Spawner Server
       bundleIndentifier: 
-      productName: ' Thieves Assault Spawner Server'
+      productName: spawnerServer
       developmentBuild: 0
       allowDebugging: 0
       enableHeadlessMode: 1
@@ -44,7 +44,7 @@ MonoBehaviour:
         - filePath: Assets/Spawner Server/Spawner.unity
     - typeName: Game Server
       bundleIndentifier: 
-      productName: ' Thieves Assault Game Server'
+      productName: gameServer
       developmentBuild: 0
       allowDebugging: 0
       enableHeadlessMode: 1
@@ -55,9 +55,9 @@ MonoBehaviour:
     - typeName: Client
       bundleIndentifier: 
       productName: ' Thieves Assault Game Client'
-      developmentBuild: 0
+      developmentBuild: 1
       allowDebugging: 0
-      enableHeadlessMode: 1
+      enableHeadlessMode: 0
       customDefines: 
       sceneList:
         enabledScenes:
@@ -258,7 +258,7 @@ MonoBehaviour:
     showBuildInfo: 0
     hideDisabled: 1
     treeView: 0
-    selectedKeyChain: Client/PC/Windows x64
+    selectedKeyChain: Master Server/Linux/Linux Universal
   _preBuildActions:
     buildActions: []
   _postBuildActions:
