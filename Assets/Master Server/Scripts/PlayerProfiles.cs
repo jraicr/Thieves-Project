@@ -29,7 +29,7 @@ namespace Thieves.MasterServer.Profiles {
             // Set the new factory
             profilesModule.ProfileFactory = CreateProfileInServer;
 
-            Logs.Warn("Created Demo profile factory");
+            Logs.Warn("Created player profile factory");
         }
 
         /// <summary>
@@ -39,12 +39,12 @@ namespace Thieves.MasterServer.Profiles {
         /// <param name="peer"></param>
         /// <returns></returns>
         public static ObservableServerProfile CreateProfileInServer(string username, IPeer peer) {
-            return new ObservableServerProfile(username, peer)
-            {
+            return new ObservableServerProfile(username, peer) {
+
             // Start with 10 coins by default
             new ObservableInt(coinsKey, 10),
-            new ObservableString(weaponKey,"Carrot")
-        };
+            new ObservableString(weaponKey, "Carrot")
+            };
         }
 
         public static ObservableServerProfile CreateProfileInServer(string username) {
