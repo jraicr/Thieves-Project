@@ -17,8 +17,8 @@ MonoBehaviour:
     openFolderPostBuild: 1
   _productParameters:
     buildCounter: 0
-    lastGeneratedVersion: 1.0.885.516
-    version: 1.0.$DAYSSINCE("January 1, 2015").$SECONDS
+    lastGeneratedVersion: 0.1.0
+    version: 0.1.$BUILD
     autoGenerate: 0
   _releaseTypeList:
     releaseTypes:
@@ -258,7 +258,7 @@ MonoBehaviour:
     showBuildInfo: 0
     hideDisabled: 1
     treeView: 0
-    selectedKeyChain: Master Server/Linux/Linux Universal
+    selectedKeyChain: Client/PC/Windows x64
   _preBuildActions:
     buildActions: []
   _postBuildActions:

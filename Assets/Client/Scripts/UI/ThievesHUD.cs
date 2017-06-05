@@ -45,7 +45,7 @@ namespace Thieves.Client.UI {
         }
 
         void Start() {
-            versionText.text = Msf.Version;
+            versionText.text = Application.version;
 
             // Subscribe
             connection.StatusChanged += OnConnectionStatusChanged;
