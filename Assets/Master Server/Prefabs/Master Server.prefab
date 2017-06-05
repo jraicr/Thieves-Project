@@ -475,9 +475,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 643b72b2583b2ad4f83aae31a07036cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SmtpHost: SSL0.OVH.NET
+  SmtpHost: smtp.codenitestudios.com
   SmtpPort: 465
-  SmtpUsername: thieves-accounts@codenitestudios.com
+  SmtpUsername: thieves-accounts%codenitestudios.com
   SmtpPassword: Thieves851414
   EmailFrom: accounts@thievesAssault.com
-  SenderDisplayName: Thieves Assault Acc
+  SenderDisplayName: Thieves Assault Account

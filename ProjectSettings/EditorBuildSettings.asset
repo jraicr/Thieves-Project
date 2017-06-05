@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: b16210d50abc85e4d916656776325bd8
+  - enabled: 1
+    path: Assets/Share/Scene Maps/Map-Rai-Lab.unity
+    guid: 27900f1c81176854ebfdffb2a4f233cc
+  - enabled: 1
+    path: Assets/Share/Extensions/Barebones/Demos/QuickSetup/Scenes/GameLevels/SimplePlatform.unity
+    guid: 00000000000000000000000000000000

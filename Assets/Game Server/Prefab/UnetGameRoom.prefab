@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1780080517102406}
+  m_IsPrefabParent: 1
+--- !u!1 &1780080517102406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4570443700946178}
+  - component: {fileID: 114022971224772364}
+  - component: {fileID: 114139822173530656}
+  m_Layer: 0
+  m_Name: UnetGameRoom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4570443700946178
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1780080517102406}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114022971224772364
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1780080517102406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 254
+    i1: 194
+    i2: 13
+    i3: 126
+    i4: 71
+    i5: 113
+    i6: 11
+    i7: 68
+    i8: 216
+    i9: 253
+    i10: 97
+    i11: 118
+    i12: 169
+    i13: 133
+    i14: 90
+    i15: 235
+  m_ServerOnly: 1
+  m_LocalPlayerAuthority: 0
+--- !u!114 &114139822173530656
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1780080517102406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd7afde8e26d3db4f9767bb3d4efa3c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logLevel: 4
+  publicIp: 127.0.0.1
+  maxPlayers: 5
+  isPublic: 1
+  password: 
+  allowUsersRequestAccess: 1
+  mapName: Amazing Map
+  quitAppIfDisconnected: 1
+  networkManager: {fileID: 0}
