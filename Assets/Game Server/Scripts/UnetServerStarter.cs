@@ -4,6 +4,7 @@ using Barebones.MasterServer;
 using Barebones.Networking;
 using UnityEngine;
 using UnityEngine.Networking;
+using Thieves.Share.Room;
 
 namespace Thieves.GameServer.Room {
     public class UnetServerStarter : MonoBehaviour {
@@ -111,7 +112,7 @@ namespace Thieves.GameServer.Room {
                 }
 
                 // Set the static object, so that it can be used when creating a room
-                UnetGameRoom.SpawnTaskController = controller;
+                Thieves.Share.Room.UnetGameRoom.SpawnTaskController = controller;
 
                 if (Msf.Args.IsProvided(Msf.Args.Names.WebGl))
                     networkManager.useWebSockets = true;

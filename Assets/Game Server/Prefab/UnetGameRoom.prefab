@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4570443700946178}
   - component: {fileID: 114022971224772364}
-  - component: {fileID: 114139822173530656}
+  - component: {fileID: 114967505482223604}
   m_Layer: 0
   m_Name: UnetGameRoom
   m_TagString: Untagged
@@ -73,7 +73,7 @@ MonoBehaviour:
     i15: 235
   m_ServerOnly: 1
   m_LocalPlayerAuthority: 0
---- !u!114 &114139822173530656
+--- !u!114 &114967505482223604
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -84,9 +84,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7afde8e26d3db4f9767bb3d4efa3c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logLevel: 4
+  logLevel: 0
   publicIp: 127.0.0.1
-  maxPlayers: 5
+  roomName: Room Name
+  maxPlayers: 10
   isPublic: 1
   password: 
   allowUsersRequestAccess: 1

@@ -39,7 +39,7 @@ namespace Thieves.Share.Room {
         [Header("Room options")]
         [Tooltip("This address will be sent to clients with an access token")]
         public string publicIp = "xxx.xxx.xxx.xxx";
-        private string roomName = "Room Name";
+        public string roomName = "Room Name";
         public int maxPlayers = 10;
         public bool isPublic = true;
         public string password = "";
@@ -80,26 +80,6 @@ namespace Thieves.Share.Room {
 
         public bool IsRoomRegistered { get; protected set; }
 
-        public bool AllowUsersRequestAccess {
-            get {
-                return allowUsersRequestAccess;
-            }
-
-            set {
-                allowUsersRequestAccess = value;
-            }
-        }
-
-        public string RoomName {
-            get {
-                return roomName;
-            }
-
-            set {
-                roomName = value;
-            }
-        }
-
         /// <summary>
         /// This will be called, when game server starts
         /// </summary>
@@ -125,7 +105,7 @@ namespace Thieves.Share.Room {
 
                 // Room name
                 if (prop.ContainsKey(MsfDictKeys.RoomName))
-                    RoomName = prop[MsfDictKeys.RoomName];
+                    roomName = prop[MsfDictKeys.RoomName];
 
                 if (prop.ContainsKey(MsfDictKeys.MaxPlayers))
                     maxPlayers = int.Parse(prop[MsfDictKeys.MaxPlayers]);
@@ -160,12 +140,12 @@ namespace Thieves.Share.Room {
             var options = new RoomOptions() {
                 RoomIp = publicIp,
                 RoomPort = networkManager.networkPort,
-                Name = RoomName,
+                Name = roomName,
                 MaxPlayers = maxPlayers,
 
                 // Lobby rooms should be private, because they are accessed differently
                 IsPublic = isUsingLobby ? false : isPublic,
-                AllowUsersRequestAccess = isUsingLobby ? false : AllowUsersRequestAccess,
+                AllowUsersRequestAccess = isUsingLobby ? false : allowUsersRequestAccess,
 
                 Password = password,
 

@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4922136448928958}
-  - component: {fileID: 114471004910220024}
+  - component: {fileID: 114161543524766496}
   m_Layer: 0
   m_Name: UnetServerStarter
   m_TagString: Untagged
@@ -40,7 +40,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114471004910220024
+--- !u!114 &114161543524766496
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   warnIfNoConnectionObject: 1
-  logLevel: 3
+  logLevel: 2
   networkManager: {fileID: 0}
   autoStartSpawned: 1
   autoStartInEditor: 0

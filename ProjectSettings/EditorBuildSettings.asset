@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Client/Game Client.unity
+    guid: 00000000000000000000000000000000
+  - enabled: 1
     path: Assets/Share/Scene Maps/Map-Rai-Lab.unity
     guid: 27900f1c81176854ebfdffb2a4f233cc
   - enabled: 1
     path: Assets/Share/Extensions/Barebones/Demos/QuickSetup/Scenes/GameLevels/SimplePlatform.unity
-    guid: 00000000000000000000000000000000
+    guid: 6655c0ba684763e4a935542b62985ac2

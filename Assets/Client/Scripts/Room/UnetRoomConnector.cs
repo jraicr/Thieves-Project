@@ -16,7 +16,7 @@ namespace Thieves.Share.Room {
         };
 
         /// <summary>
-        ///     Log level of connector
+        /// Log level of connector
         /// </summary>
         public LogLevel logLevel = LogLevel.Warn;
 
@@ -117,7 +117,7 @@ namespace Thieves.Share.Room {
             logger.Info("Connected to game server, about to send access");
 
             // Connected, send the token
-            networkManager.client.connection.Send(Thieves.Share.Room.UnetGameRoom.accessMsgType, new StringMessage(access.Token));
+            networkManager.client.connection.Send(UnetGameRoom.accessMsgType, new StringMessage(access.Token));
 
             // While connected
             while (networkManager.IsClientConnected())
