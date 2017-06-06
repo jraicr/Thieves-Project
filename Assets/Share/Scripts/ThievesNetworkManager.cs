@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
-using Thieves.Share.Room;
+using Thieves.GameServer.Profiles;
 using Barebones.MasterServer;
 
 /// <summary>
 /// Manages <see cref="UnetGameRoom"/>
 /// </summary>
-namespace Thieves.GameServer.Room {
+namespace Thieves.Share.Room {
     public class ThievesNetworkManager : NetworkManager {
         public Thieves.Share.Room.UnetGameRoom gameRoom;
 
@@ -47,10 +47,10 @@ namespace Thieves.GameServer.Room {
             // If you want to use player profile
 
             // Create an "empty" (default) player profile
-            var defaultProfile = DemoPlayerProfiles.CreateProfileInServer(player.Username);
+            var defaultProfile = PlayerProfiles.CreateProfileInServer(player.Username);
 
             // Get coins property from profile
-            var coinsProperty = defaultProfile.GetProperty<ObservableInt>(DemoPlayerProfiles.CoinsKey);
+            var coinsProperty = defaultProfile.GetProperty<ObservableInt>(PlayerProfiles.coinsKey);
 
             // Fill the profile with values from master server
             Msf.Server.Profiles.FillProfileValues(defaultProfile, (successful, error) => {

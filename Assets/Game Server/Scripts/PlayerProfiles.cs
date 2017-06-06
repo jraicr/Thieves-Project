@@ -4,7 +4,7 @@ using Barebones.MasterServer;
 using Barebones.Networking;
 using UnityEngine;
 
-namespace Thieves.MasterServer.Profiles {
+namespace Thieves.GameServer.Profiles {
 
     /// <summary>
     /// Sets up profiles module
