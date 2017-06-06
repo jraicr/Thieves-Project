@@ -8849,7 +8849,7 @@ MonoBehaviour:
   mapName: {fileID: 114933389614398458}
   gameName: {fileID: 114292856554008740}
   online: {fileID: 114536605676043360}
-  selectedBgColor: {r: 0.2901961, g: 0.42352945, b: 0.454902, a: 0}
+  selectedBgColor: {r: 0.2901961, g: 0.42352945, b: 0.454902, a: 0.478}
   unknownMapName: Unknown
 --- !u!114 &114530910785596012
 MonoBehaviour:
@@ -14594,7 +14594,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 166.6, y: 4.5999985}
+  m_AnchoredPosition: {x: 166.6, y: 4.5999966}
   m_SizeDelta: {x: 189, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224062171069899650
@@ -14746,7 +14746,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 437.84372, y: -14.5}
+  m_AnchoredPosition: {x: 437.84375, y: -14.5}
   m_SizeDelta: {x: 95.1375, y: 19}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224100404664731934
@@ -16365,7 +16365,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 437.84372, y: -17}
+  m_AnchoredPosition: {x: 437.84375, y: -17}
   m_SizeDelta: {x: 95.1375, y: 24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224487780607493732
