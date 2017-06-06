@@ -42,7 +42,6 @@ namespace Thieves.Client.UI {
 						}
 
 						connection = Msf.Connection;
-
 						isExpanded = PlayerPrefs.GetInt(HudExpansionPrefKey, 1) > 0;
 				}
 
@@ -81,7 +80,6 @@ namespace Thieves.Client.UI {
 				}
 
 				protected void OnLoginStatusChanged() {
-						Debug.Log("Logged in");
 						UpdateLoginStatusView(connection.Status);
 				}
 
@@ -132,7 +130,7 @@ namespace Thieves.Client.UI {
 								if (Msf.Client.Auth.IsLoggedIn) {
 										var username = Msf.Client.Auth.AccountInfo.Username;
 										loginStatus.SetActive(true);
-										loginStatusText.text = "Logged in as <color=#72C650FF>" + username + "</color>";
+										loginStatusText.text = "Logged in as <color=#FFC208FF>" + username + "</color>";
 								} else {
 										loginStatusText.text = "You are not logged in.";
 								}
