@@ -22,13 +22,13 @@ namespace Thieves.Client.UI {
 				protected void OnAwake() {
 						Msf.Client.Auth.LoggedIn += OnLoggedIn;
 
-						email = email ?? transform.FindChild("Email").GetComponent<InputField>();
-						errorText = errorText ?? transform.FindChild("Error").GetComponent<Text>();
-						guestNotice = guestNotice ?? transform.FindChild("GuestNotice").GetComponent<Text>();
-						registerButton = registerButton ?? transform.FindChild("Button").GetComponent<Button>();
-						password = password ?? transform.FindChild("Password").GetComponent<InputField>();
-						repeatPassword = repeatPassword ?? transform.FindChild("RepeatPassword").GetComponent<InputField>();
-						username = username ?? transform.FindChild("Username").GetComponent<InputField>();
+						email = email ?? transform.Find("Email").GetComponent<InputField>();
+						errorText = errorText ?? transform.Find("Error").GetComponent<Text>();
+						guestNotice = guestNotice ?? transform.Find("GuestNotice").GetComponent<Text>();
+						registerButton = registerButton ?? transform.Find("Button").GetComponent<Button>();
+						password = password ?? transform.Find("Password").GetComponent<InputField>();
+						repeatPassword = repeatPassword ?? transform.Find("RepeatPassword").GetComponent<InputField>();
+						username = username ?? transform.Find("Username").GetComponent<InputField>();
 
 						errorText.gameObject.SetActive(false);
 				}

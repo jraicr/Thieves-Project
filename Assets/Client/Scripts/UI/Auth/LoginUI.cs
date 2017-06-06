@@ -18,11 +18,11 @@ namespace Thieves.Client.UI {
 				protected string UsernamePrefKey = "msf.auth.username";
 
 				protected virtual void Awake() {
-						errorText = errorText ?? transform.FindChild("Error").GetComponent<Text>();
-						loginButton = loginButton ?? transform.FindChild("Button").GetComponent<Button>();
-						password = password ?? transform.FindChild("Password").GetComponent<InputField>();
-						remember = remember ?? transform.FindChild("Remember").GetComponent<Toggle>();
-						username = username ?? transform.FindChild("Username").GetComponent<InputField>();
+						errorText = errorText ?? transform.Find("Error").GetComponent<Text>();
+						loginButton = loginButton ?? transform.Find("Button").GetComponent<Button>();
+						password = password ?? transform.Find("Password").GetComponent<InputField>();
+						remember = remember ?? transform.Find("Remember").GetComponent<Toggle>();
+						username = username ?? transform.Find("Username").GetComponent<InputField>();
 
 						if (passwordResetWindow == null) {
 								var window = FindObjectOfType<PasswordResetUI>();
