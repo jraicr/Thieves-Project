@@ -223,12 +223,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2af55ac5c7d49b4fad8576a52049975, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &130444803 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114529958771070254, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
-    type: 2}
-  m_PrefabInternal: {fileID: 1616523871}
-  m_Script: {fileID: 11500000, guid: 4c6170c62b0f8914e88b38f31504340b, type: 3}
 --- !u!1 &234935238
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,11 +545,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 234935242}
     m_Modifications:
-    - target: {fileID: 114592835903771012, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
-        type: 2}
-      propertyPath: maps.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 224883575408039742, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -649,47 +638,47 @@ Prefab:
     - target: {fileID: 224341062104910120, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224341062104910120, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224341062104910120, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 258.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224341062104910120, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -48.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224341062104910120, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 258.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224339042591573254, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 48.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224577845979366672, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224577845979366672, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224577845979366672, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 122
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224577845979366672, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
         type: 2}
@@ -699,53 +688,47 @@ Prefab:
     - target: {fileID: 224577845979366672, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 59
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224577845979366672, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
         type: 2}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1178007407865132, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2, type: 2}
+    - target: {fileID: 1984492618532524, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224526816798228702, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114592835903771012, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
+    - target: {fileID: 114074415622642412, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
         type: 2}
-      propertyPath: maps.Array.data[1].Name
-      value: Demo
+      propertyPath: m_Text
+      value: "Internal build not for public distribution. <b>Copyright \xA9 2017 Code
+        Nite Studios</b>"
       objectReference: {fileID: 0}
-    - target: {fileID: 114592835903771012, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
+    - target: {fileID: 224526816798228702, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
         type: 2}
-      propertyPath: maps.Array.data[1].Scene.m_SceneAsset
-      value: 
-      objectReference: {fileID: 102900000, guid: 6655c0ba684763e4a935542b62985ac2,
-        type: 3}
-    - target: {fileID: 114592835903771012, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
-        type: 2}
-      propertyPath: maps.Array.data[1].Scene.m_SceneName
-      value: SimplePlatform
+      propertyPath: m_AnchorMin.y
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114592835903771012, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
+    - target: {fileID: 224526816798228702, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
         type: 2}
-      propertyPath: maps.Array.data[1].Sprite
-      value: 
-      objectReference: {fileID: 21300036, guid: 8c831b29ee89a1b48b395beb6ae74f9d,
-        type: 3}
-    - target: {fileID: 114421652940269110, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 130444803}
-    - target: {fileID: 114421652940269110, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnClick
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114421652940269110, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
+    - target: {fileID: 224526816798228702, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
         type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224526816798228702, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2, type: 2}
