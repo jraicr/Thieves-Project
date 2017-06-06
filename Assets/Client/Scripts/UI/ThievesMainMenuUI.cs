@@ -4,39 +4,39 @@ using UnityEngine;
 using Barebones.MasterServer;
 
 namespace Thieves.Client.UI {
-    public class ThievesMainMenuUI : MonoBehaviour {
-        public static ThievesMainMenuUI Instance;
-        public DialogBoxUI dialogBox;
-        public LoadingUI loading;
+		public class ThievesMainMenuUI : MonoBehaviour {
+				public static ThievesMainMenuUI Instance;
+				public DialogBoxUI dialogBox;
+				public LoadingUI loading;
 
-        public ClientConnectionStatusUI ConnectionStatus;
+				public ClientConnectionStatusUI ConnectionStatus;
 
-        protected virtual void Awake() {
-            if (Msf.Args.DestroyUi) {
-                Destroy(gameObject);
-                return;
-            }
+				protected virtual void Awake() {
+						if (Msf.Args.DestroyUi) {
+								Destroy(gameObject);
+								return;
+						}
 
-            Instance = this;
+						Instance = this;
 
-            dialogBox = dialogBox ?? FindObjectOfType<DialogBoxUI>();
-            loading = loading ?? FindObjectOfType<LoadingUI>();
+						dialogBox = dialogBox ?? FindObjectOfType<DialogBoxUI>();
+						loading = loading ?? FindObjectOfType<LoadingUI>();
 
-            SubscribeToEvents();
-        }
+						SubscribeToEvents();
+				}
 
-        protected virtual void SubscribeToEvents() {
-            if (dialogBox != null)
-                dialogBox.SubscribeToEvents();
+				protected virtual void SubscribeToEvents() {
+						if (dialogBox != null)
+								dialogBox.SubscribeToEvents();
 
-            if (loading != null)
-                loading.SubscribeToEvents();
-        }
+						if (loading != null)
+								loading.SubscribeToEvents();
+				}
 
-        void OnDestroy() {
-            if (Instance == this) {
-                Instance = null;
-            }
-        }
-    }
+				void OnDestroy() {
+						if (Instance == this) {
+								Instance = null;
+						}
+				}
+		}
 }

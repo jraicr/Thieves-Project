@@ -81,9 +81,9 @@ namespace Thieves.Client.UI {
 				}
 
 				protected void OnLoginStatusChanged() {
-			Debug.Log("Logged in");
-			UpdateLoginStatusView(connection.Status);
-		}
+						Debug.Log("Logged in");
+						UpdateLoginStatusView(connection.Status);
+				}
 
 				public void ToggleFullWindow() {
 						isExpanded = !isExpanded;
@@ -101,7 +101,7 @@ namespace Thieves.Client.UI {
 						UpdateLoginStatusView(connection.Status);
 				}
 
-		
+
 				private void UpdateConnectionStatusView() {
 						switch (connection.Status) {
 								case ConnectionStatus.Connected:

@@ -9,22 +9,21 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class SwitchGameServerScene : MonoBehaviour {
 
-    public HelpBox _header = new HelpBox("Connects to Master server, " +
-                                          "and switches to an appropriate scene");
+		public HelpBox _header = new HelpBox("Connects to Master server, " +
+																					"and switches to an appropriate scene");
 
-    // Use this for initialization
-    void Start() {
-        // Wait until we're connected to master server
-        Msf.Connection.AddConnectionListener(OnConnectedToMaster, true);
-    }
+		// Use this for initialization
+		void Start() {
+				// Wait until we're connected to master server
+				Msf.Connection.AddConnectionListener(OnConnectedToMaster, true);
+		}
 
-    private void OnConnectedToMaster() {
-        if (!Msf.Args.IsProvided(Msf.Args.LoadScene)) {
-            Logs.Error("A scene to load was not provided");
-            return;
-        }
+		private void OnConnectedToMaster() {
+				if (!Msf.Args.IsProvided(Msf.Args.LoadScene)) {
+						Logs.Error("A scene to load was not provided");
+						return;
+				}
 
-        SceneManager.LoadScene(Msf.Args.LoadScene);
-    }
-
+				SceneManager.LoadScene(Msf.Args.LoadScene);
+		}
 }
