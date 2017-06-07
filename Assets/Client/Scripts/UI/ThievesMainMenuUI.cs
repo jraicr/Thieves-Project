@@ -8,7 +8,6 @@ namespace Thieves.Client.UI {
 				public static ThievesMainMenuUI Instance;
 				public DialogBoxUI dialogBox;
 				public LoadingUI loading;
-
 				public ClientConnectionStatusUI ConnectionStatus;
 
 				protected virtual void Awake() {
@@ -18,10 +17,8 @@ namespace Thieves.Client.UI {
 						}
 
 						Instance = this;
-
 						dialogBox = dialogBox ?? FindObjectOfType<DialogBoxUI>();
 						loading = loading ?? FindObjectOfType<LoadingUI>();
-
 						SubscribeToEvents();
 				}
 

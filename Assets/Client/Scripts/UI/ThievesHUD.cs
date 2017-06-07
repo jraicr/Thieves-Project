@@ -18,6 +18,7 @@ namespace Thieves.Client.UI {
 				public GameObject spawners;
 				public GameObject rooms;
 				public GameObject masterConnection;
+				public GameObject masterReconnection;
 				public GameObject loginStatus;
 				public GameObject disclaimer;
 
@@ -28,12 +29,14 @@ namespace Thieves.Client.UI {
 				public Text connectionPermissionsText;
 				public Image connectionStatusBg;
 
+				[Header("Master Reconnection")]
+				public ConnectionToMaster connectionToMaster;
+
 				[Header("Other Text Components")]
 				public Text spawnersText;
 				public Text roomsText;
 				public Text versionText;
 				public Text loginStatusText;
-
 				public bool editorOnly = false;
 
 				void Awake() {
@@ -43,6 +46,7 @@ namespace Thieves.Client.UI {
 
 						connection = Msf.Connection;
 						isExpanded = PlayerPrefs.GetInt(HudExpansionPrefKey, 1) > 0;
+						connectionToMaster = connectionToMaster ?? FindObjectOfType<ConnectionToMaster>();
 				}
 
 				void Start() {
@@ -66,6 +70,14 @@ namespace Thieves.Client.UI {
 						UpdateRunningMasterView(obj.IsRunning);
 				}
 
+				private void UpdateReconnectionStatusView(ConnectionStatus status) {
+						if (status == ConnectionStatus.Disconnected && isExpanded) {
+								masterReconnection.SetActive(true);
+						} else {
+								masterReconnection.SetActive(false);
+						}
+				}
+
 				private void OnSpawnersCountChange(SpawnerController obj) {
 						UpdateSpawnersView();
 				}
@@ -83,6 +95,11 @@ namespace Thieves.Client.UI {
 						UpdateLoginStatusView(connection.Status);
 				}
 
+				public void OnClickReconnectToMaster() {
+						connectionToMaster = connectionToMaster ?? FindObjectOfType<ConnectionToMaster>();
+						connectionToMaster.Start();
+				}
+
 				public void ToggleFullWindow() {
 						isExpanded = !isExpanded;
 						UpdateAllViews();
@@ -97,6 +114,7 @@ namespace Thieves.Client.UI {
 						UpdateSpawnersView();
 						disclaimer.SetActive(isExpanded);
 						UpdateLoginStatusView(connection.Status);
+						UpdateReconnectionStatusView(connection.Status);
 				}
 
 
@@ -122,6 +140,7 @@ namespace Thieves.Client.UI {
 								connectionPermissionsText.text = "Permission Level: " + Msf.Security.CurrentPermissionLevel;
 						}
 
+						UpdateReconnectionStatusView(connection.Status);
 						masterConnection.SetActive(isExpanded && (connection.Status != ConnectionStatus.Disconnected));
 				}
 
