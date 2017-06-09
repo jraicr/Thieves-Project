@@ -2,6 +2,7 @@
 using UnityEngine.Networking;
 using Thieves.GameServer.Profiles;
 using Barebones.MasterServer;
+using Thieves.GameServer.PlayerNetworking;
 
 /// <summary>
 /// Manages <see cref="UnetGameRoom"/>
@@ -60,15 +61,15 @@ namespace Thieves.Share.Room {
 								// We can still allow players to play with default profile ^_^
 
 								// Let's spawn the player character
-								var playerObject = MiniNetworkManager.SpawnPlayer(player.Connection, player.Username, "carrot");
+								var playerObject = ServerNetworkManager.SpawnPlayer(player.Connection, player.Username, "carrot");
 
 								// Set coins value from profile
-								playerObject.Coins = coinsProperty.Value;
+								//playerObject.Coins = coinsProperty.Value;
 
-								playerObject.CoinsChanged += () => {
-										// Every time player coins change, update the profile with new value
-										coinsProperty.Set(playerObject.Coins);
-								};
+								//playerObject.CoinsChanged += () => {
+								// Every time player coins change, update the profile with new value
+								//coinsProperty.Set(playerObject.Coins);
+								//};
 						});
 				}
 
