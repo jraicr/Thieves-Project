@@ -15,10 +15,5 @@ namespace Thieves.Client.Network {
 				public override IClientSocket GetConnection() {
 						return base.GetConnection();
 				}
-
-				public void OnLevelWasLoaded(int level) {
-																		
-				}
-
 		}
 }

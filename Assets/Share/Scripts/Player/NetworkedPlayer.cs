@@ -6,10 +6,27 @@ using Thieves.Share.PlayerController;
 using Thieves.GameServer.PlayerNetworking;
 
 namespace Thieves.Share.PlayerNetworking {
-		[NetworkSettings(channel=2)] public class NetworkedPlayer : NetworkBehaviour {
+		[NetworkSettings(channel = 2)]
+		public class NetworkedPlayer : NetworkBehaviour {
+				/// <summary>
+				/// Prefab for remote player.
+				/// Instanted by clients.
+				/// </summary>
 				public PlayerClient prefabInterpolated;
+
+				/// <summary>
+				/// Prefab for local player object wich input would be predicted
+				/// by client.
+				/// Instanted only by the local client
+				/// </summary>
 				public PlayerClient prefabPredicted;
+
+				/// <summary>
+				/// Prefab for the server player object. 
+				/// Instanted only by the server.
+				/// </summary>
 				public PlayerServer prefabServer;
+
 
 				public int inputBufferSize = 3;
 				public float timeBetweenBullets = 0.15f;
@@ -18,11 +35,11 @@ namespace Thieves.Share.PlayerNetworking {
 				[SyncVar]
 				[HideInInspector]
 				public string playerName;
-				
-				[SyncVar(hook="OnChangeMove")]
+
+				[SyncVar(hook = "OnChangeMove")]
 				public PlayerState move;
 
-				[SyncVar(hook="OnChangeShoot")]
+				[SyncVar(hook = "OnChangeShoot")]
 				public PlayerState shoot;
 
 				[SyncVar(hook = "OnChangeHolster")]
@@ -35,31 +52,38 @@ namespace Thieves.Share.PlayerNetworking {
 				private PlayerServer server;
 				private PlayerClient client;
 
-				[ServerCallback] void Awake () {
+				// Awake only call in server
+				[ServerCallback]
+				void Awake() {
 						gameObject.AddComponent<PlayerHistory>();
 						gameObject.AddComponent<PlayerHealth>();
 						server = Instantiate(prefabServer, transform);
 						currentHealth = startingHealth;
 				}
 
-				[ClientCallback] void Start () {
-						client = Instantiate (isLocalPlayer ? prefabPredicted : prefabInterpolated, transform);
-						//currentHealth = startingHealth;
+				// Awake only call in clients
+				[ClientCallback]
+				void Start() {
+						client = Instantiate(isLocalPlayer ? prefabPredicted : prefabInterpolated, transform);
 				}
 
-				[Command(channel=0)] public void CmdMove (PlayerInput[] inputs) {
-						server.Move (inputs);
+				[Command(channel = 0)]
+				public void CmdMove(PlayerInput[] inputs) {
+						server.Move(inputs);
 				}
 
-				[ClientRpc] public void RpcUpdateHealth(int health) {
+				[ClientRpc]
+				public void RpcUpdateHealth(int health) {
 						currentHealth = health;
 				}
 
-				[ClientRpc] public void RpcResetPosition(Vector3 position) {
+				[ClientRpc]
+				public void RpcResetPosition(Vector3 position) {
 						client.transform.position = position;
 				}
 
-				[ClientRpc] public void RpcForceSwitchHolster() {
+				[ClientRpc]
+				public void RpcForceSwitchHolster() {
 						PlayerSim sim = client.GetComponent<PlayerSim>();
 						PlayerHolster holster = client.GetComponent<PlayerHolster>();
 
@@ -70,26 +94,22 @@ namespace Thieves.Share.PlayerNetworking {
 						holster.SwitchHolster(sim != null, sim == null);
 				}
 
-				void OnChangeMove (PlayerState move) {
+				void OnChangeMove(PlayerState move) {
 						this.move = move;
 						if (client == null) return;
-						client.OnSnapshot (move, false, false);
+						client.OnSnapshot(move, false, false);
 				}
 
-				void OnChangeShoot (PlayerState shoot) {
+				void OnChangeShoot(PlayerState shoot) {
 						this.shoot = shoot;
 						if (client == null) return;
-						client.OnSnapshot (shoot, true, false);
+						client.OnSnapshot(shoot, true, false);
 				}
 
 				void OnChangeHolster(PlayerState holster) {
 						this.holster = holster;
 						if (client == null) return;
 						client.OnSnapshot(holster, false, true);
-				}
-
-				public bool IsAuthoritativeServer() {
-						return (server != null);
 				}
 		}
 }
