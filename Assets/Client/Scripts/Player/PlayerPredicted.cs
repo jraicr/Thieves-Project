@@ -76,7 +76,6 @@ using Thieves.Share.PlayerController;
 				}
 
 				public void ProcessInput(PlayerInput input) {
-						Vector3 lastPosition = sim.state.position;
 						predictions.Enqueue(Predict(input, true, true));
 						//animator.SetBool("IsWalking", lastPosition != sim.state.position);
 						//animator.SetBool("IsWalking", input.move != Vector2.zero);
