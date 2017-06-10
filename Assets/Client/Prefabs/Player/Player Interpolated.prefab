@@ -89,7 +89,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1630840985822552}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.88, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4396621123696908}
@@ -117,7 +117,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1568163000915218}
-  m_LocalRotation: {x: -0.008675212, y: -0.000000007803237, z: 0.00095640967, w: 0.9999619}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children: []
@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00624975482ecc447a4debbba29b5609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunBarrelEnd: {fileID: 0}
+  gunBarrelEnd: {fileID: 4934322524148558}
   range: 100
 --- !u!120 &120917217421266700
 LineRenderer:
