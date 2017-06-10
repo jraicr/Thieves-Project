@@ -38,7 +38,7 @@ namespace Thieves.Client.PlayerNetworking {
 
 				private void FixedUpdate() {
 						PlayerSnapshot snapshot = PlayerSnapshot.Interpolate(snapshots, monotonicTime.GetTime(), true);
-						animator.SetBool("IsWalking", lastPosition != snapshot.state.position);
+						//animator.SetBool("IsWalking", lastPosition != snapshot.state.position);
 						lastPosition = snapshot.state.position;
 						SetState(snapshot.state);
 
