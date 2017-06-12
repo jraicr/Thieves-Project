@@ -9,30 +9,30 @@ namespace Thieves.GameServer.PlayerNetworking {
 
 		public class ServerNetworkManager : NetworkManager {
 				public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId) {
-						SpawnPlayer(conn, "Player", "carrot");
+						SpawnPlayer(conn, "Player");
 				}
 
 				/// <summary>
 				/// Spawns a character for connected client, and assigns it to connection
 				/// </summary>
 				/// <returns></returns>
-				public static NetworkedPlayer SpawnPlayer(NetworkConnection connection, string playerName,
-						string weaponSprite, Transform position = null) {
+				public static NetworkedPlayer SpawnPlayer(NetworkConnection connection, string playerName, Transform trnform = null) {
+						Vector3 spawnPos = Vector3.zero;
+						Vector2 facingDown = Vector2.down;
+
 						// Create an instance
 						var player = Instantiate(Resources.Load<NetworkedPlayer>("Prefabs/Networked Player"));
+						var server = player.GetComponentInChildren<PlayerServer>();
 
-						if (position == null) {
-								// Nove to random position, of no position was given
-								//player.MoveToRandomSpawnPoint();
-								player.transform.position = new Vector3(0f, 0f, 0f);
+						if (trnform == null) {
+								// Move to position
+								Spawn(player, server, spawnPos, facingDown);
 						} else {
-								player.transform.position = position.position;
+								Spawn(player, server, trnform.position, facingDown);
 						}
 
 						NetworkServer.AddPlayerForConnection(connection, player.gameObject, 0);
-						//player.SetWeapon(weaponSprite);
-						//player.Setup(playerName);
-
+						player.playerName = playerName;
 						return player;
 				}
 
@@ -40,6 +40,11 @@ namespace Thieves.GameServer.PlayerNetworking {
 						foreach (var player in FindObjectsOfType<MiniPlayerController>()) {
 								player.connectionToClient.Disconnect();
 						}
+				}
+
+				private static void Spawn(NetworkedPlayer player, PlayerServer server, Vector3 spawnPosition, Vector2 facing) {
+						player.transform.position = spawnPosition;
+						server.SetInitialState(spawnPosition, facing);
 				}
 		}
 }
