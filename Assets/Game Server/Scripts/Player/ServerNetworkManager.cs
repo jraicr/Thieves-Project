@@ -37,7 +37,7 @@ namespace Thieves.GameServer.PlayerNetworking {
 				}
 
 				public void DisconnectAllPlayers() {
-						foreach (var player in FindObjectsOfType<MiniPlayerController>()) {
+						foreach (var player in FindObjectsOfType<NetworkedPlayer>()) {
 								player.connectionToClient.Disconnect();
 						}
 				}
