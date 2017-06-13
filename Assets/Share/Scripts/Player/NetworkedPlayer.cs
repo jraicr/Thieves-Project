@@ -10,28 +10,40 @@ namespace Thieves.Share.PlayerNetworking {
 		public class NetworkedPlayer : NetworkBehaviour {
 				/// <summary>
 				/// Prefab for remote player.
-				/// Instanted by clients.
+				/// Instantiated by clients.
 				/// </summary>
 				public PlayerClient prefabInterpolated;
 
 				/// <summary>
-				/// Prefab for local player object wich input would be predicted
-				/// by client.
-				/// Instanted only by the local client
+				/// Prefab for local player object which input would be predicted by client.
+				/// Instantiated only by the local client
 				/// </summary>
 				public PlayerClient prefabPredicted;
 
 				/// <summary>
 				/// Prefab for the server player object. 
-				/// Instanted only by the server.
+				/// Instantiated only by the server.
 				/// </summary>
 				public PlayerServer prefabServer;
 
-
+				/// <summary>
+				/// Input buffer size needed to start sending input data to the server
+				/// </summary>
 				public int inputBufferSize = 3;
+
+				/// <summary>
+				/// The time that must pass before player can shoot again.
+				/// </summary>
 				public float timeBetweenBullets = 0.15f;
+
+				/// <summary>
+				/// Initial value for health
+				/// </summary>
 				public int startingHealth = 100;
 
+				/// <summary>
+				/// The nickname of this player
+				/// </summary>
 				[SyncVar]
 				[HideInInspector]
 				public string playerName;
@@ -52,7 +64,7 @@ namespace Thieves.Share.PlayerNetworking {
 				private PlayerServer server;
 				private PlayerClient client;
 
-				// Awake only call in server
+				// This Awake() function only is called on game server.
 				[ServerCallback]
 				void Awake() {
 						gameObject.AddComponent<PlayerHistory>();
@@ -61,37 +73,20 @@ namespace Thieves.Share.PlayerNetworking {
 						currentHealth = startingHealth;
 				}
 
-				// Awake only call in clients
+				// This Start() function only is called on clients.
 				[ClientCallback]
 				void Start() {
 						client = Instantiate(isLocalPlayer ? prefabPredicted : prefabInterpolated, transform);
 				}
 
+				/// <summary>
+				/// Send input data to the server.
+				/// This is called from client and invoked on server.
+				/// </summary>
+				/// <param name="inputs">Array with player data input</param>
 				[Command(channel = 0)]
 				public void CmdMove(PlayerInput[] inputs) {
 						server.Move(inputs);
-				}
-
-				[ClientRpc]
-				public void RpcUpdateHealth(int health) {
-						currentHealth = health;
-				}
-
-				[ClientRpc]
-				public void RpcResetPosition(Vector3 position) {
-						client.transform.position = position;
-				}
-
-				[ClientRpc]
-				public void RpcForceSwitchHolster() {
-						PlayerSim sim = client.GetComponent<PlayerSim>();
-						PlayerHolster holster = client.GetComponent<PlayerHolster>();
-
-						if (sim != null) {
-								sim.SetUnholster(!sim.GetUnholster());
-						}
-
-						holster.SwitchHolster(sim != null, sim == null);
 				}
 
 				void OnChangeMove(PlayerState move) {
