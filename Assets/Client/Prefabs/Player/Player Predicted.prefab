@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4583317821206876}
   - component: {fileID: 33525610984248602}
   - component: {fileID: 23857989691635414}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4710742153218460}
   - component: {fileID: 33757401516357076}
   - component: {fileID: 23648603409953776}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4016501389036508}
   - component: {fileID: 120973783294626346}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Gun Barrel End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 114471866538150392}
   - component: {fileID: 114951321545074512}
   - component: {fileID: 114911293137634638}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player Predicted
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1611010913946936}
   m_LocalRotation: {x: 0.008675212, y: 0.000000007803237, z: -0.00095640967, w: 0.9999619}
-  m_LocalPosition: {x: -0.57, y: 0.29, z: -1.59}
+  m_LocalPosition: {x: -0.57, y: 0.196, z: 1.949}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4563856557234688}
@@ -104,7 +104,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1744767812469872}
-  m_LocalRotation: {x: -0.008675212, y: -0.000000007803237, z: 0.00095640967, w: 0.9999619}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -113,7 +113,7 @@ Transform:
   - {fileID: 4016501389036508}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -0.994, y: -0.001, z: 0.11000001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4583317821206876
 Transform:
   m_ObjectHideFlags: 1
@@ -134,7 +134,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1182949594646440}
   m_LocalRotation: {x: 0.008675212, y: 0.000000007803237, z: -0.00095640967, w: 0.9999619}
-  m_LocalPosition: {x: -0.579, y: 0.25, z: -0.73}
+  m_LocalPosition: {x: -0.579, y: 0.25, z: 1.021}
   m_LocalScale: {x: 0.13287301, y: 0.16678724, z: 1.7542642}
   m_Children: []
   m_Father: {fileID: 4563856557234688}
@@ -320,7 +320,7 @@ LineRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1611010913946936}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 0
@@ -357,13 +357,13 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 1
+        value: 0.051948547
         inSlope: 0
         outSlope: 0
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-      m_RotationOrder: 4
+      m_RotationOrder: 0
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}

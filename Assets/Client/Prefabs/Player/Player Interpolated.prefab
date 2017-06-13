@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4934322524148558}
   - component: {fileID: 120917217421266700}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Gun Barrel End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4396621123696908}
   - component: {fileID: 33378614087587658}
   - component: {fileID: 23306410347265842}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 143882865972248490}
   - component: {fileID: 114443221128884386}
   - component: {fileID: 114735102512924576}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player Interpolated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 4392523296853048}
   - component: {fileID: 33180309622389326}
   - component: {fileID: 23020621137011458}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1793834115870850}
   m_LocalRotation: {x: 0.008675212, y: 0.000000007803237, z: -0.00095640967, w: 0.9999619}
-  m_LocalPosition: {x: -0.579, y: 0.25, z: -0.73}
+  m_LocalPosition: {x: -0.579, y: 0.25, z: 1.021}
   m_LocalScale: {x: 0.13287301, y: 0.16678724, z: 1.7542642}
   m_Children: []
   m_Father: {fileID: 4071768881483922}
@@ -131,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1203946020696782}
   m_LocalRotation: {x: 0.008675212, y: 0.000000007803237, z: -0.00095640967, w: 0.9999619}
-  m_LocalPosition: {x: -0.57, y: 2.91, z: -1.59}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4071768881483922}
@@ -281,7 +281,7 @@ LineRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1203946020696782}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 0
@@ -318,13 +318,13 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 1
+        value: 0.051948547
         inSlope: 0
         outSlope: 0
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-      m_RotationOrder: 4
+      m_RotationOrder: 0
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
