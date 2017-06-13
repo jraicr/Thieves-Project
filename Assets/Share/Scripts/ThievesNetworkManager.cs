@@ -51,17 +51,18 @@ namespace Thieves.Share.Room {
 						var defaultProfile = PlayerProfiles.CreateProfileInServer(player.Username);
 
 						// Get coins property from profile
-						var coinsProperty = defaultProfile.GetProperty<ObservableInt>(PlayerProfiles.coinsKey);
+						//var coinsProperty = defaultProfile.GetProperty<ObservableInt>(PlayerProfiles.coinsKey);
 
 						// Fill the profile with values from master server
 						Msf.Server.Profiles.FillProfileValues(defaultProfile, (successful, error) => {
-								if (!successful)
+								if (!successful) {
 										Logs.Error("Failed to retrieve profile values: " + error);
+								}
 
 								// We can still allow players to play with default profile ^_^
 
 								// Let's spawn the player character
-								var playerObject = ServerNetworkManager.SpawnPlayer(player.Connection, player.Username, "carrot");
+								var playerObject = ServerNetworkManager.SpawnPlayer(player.Connection, player.Username);
 
 								// Set coins value from profile
 								//playerObject.Coins = coinsProperty.Value;
