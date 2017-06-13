@@ -66,11 +66,11 @@ namespace Thieves.Client.PlayerController {
 				private void SwitchWeapon(bool unholster) {
 						if (unholster) {
 								RotateWeapon(new Vector3(0f, 0f, 0f));
-								gun.transform.localPosition = new Vector3(-1.495f, 1.144f, 0.072f);
+								//gun.transform.localPosition = new Vector3(-1.495f, 1.144f, 0.072f);
 
 						} else {
 								RotateWeapon(new Vector3(50f, 0f, 0f));
-								gun.transform.localPosition = new Vector3(-1.527f, 1.561f, -0.253f);
+								//gun.transform.localPosition = new Vector3(-1.527f, 1.561f, -0.253f);
 						}
 				}
 
