@@ -35,7 +35,7 @@ namespace Thieves.Client.PlayerController {
 
 				public void Shoot(bool localPlayer = false) {
 						timer = effectsDisplayTime;
-						//gunAudio.Play();
+						gunAudio.Play();
 
 						if (localPlayer) {
 								camManagement.GunShake();
