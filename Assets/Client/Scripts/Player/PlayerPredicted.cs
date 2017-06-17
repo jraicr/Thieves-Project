@@ -31,15 +31,16 @@ using Thieves.Share.PlayerController;
 
 				private PlayerPrediction Predict(PlayerInput input, bool predictShoot, bool predictHolster) {
 						PlayerAction playerActions = sim.Move(input, 0f);
+						bool holsterSwitched = sim.state.holster != sim.lastState.holster;
 
 						if (predictHolster) {
-								if (playerActions.holster) {
-										holster.SwitchHolster(true);
+								if (holsterSwitched) {
+										holster.SwitchHolster(sim.state.holster);
 								}
 						}
 
 						if (predictShoot) {
-								if (sim.GetUnholster() && playerActions.shoot) {
+								if (!sim.state.holster && playerActions.shoot) {
 										shoot.Shoot(true);
 								}
 						}

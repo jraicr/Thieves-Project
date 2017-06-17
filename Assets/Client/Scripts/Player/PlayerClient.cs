@@ -27,16 +27,15 @@ namespace Thieves.Client.PlayerNetworking {
 								PlayerSnapshot snapshot = snapshots.Dequeue();
 								client.OnSnapshot(snapshot);
 
-								if (snapshot.shoot || snapshot.holster) continue;
+								if (snapshot.shoot) continue;
 								monotonicTime.SetTime(snapshot.state.timestamp);
 						}
 				}
 
-				public void OnSnapshot(PlayerState state, bool shoot, bool holster) {
+				public void OnSnapshot(PlayerState state, bool shoot) {
 						snapshots.Enqueue(new PlayerSnapshot {
 								state = state,
-								shoot = shoot,
-								holster = holster
+								shoot = shoot
 						});
 				}
 

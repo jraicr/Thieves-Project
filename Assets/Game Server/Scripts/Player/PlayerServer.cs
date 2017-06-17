@@ -40,17 +40,17 @@ namespace Thieves.GameServer.PlayerNetworking {
             while (movesMade < movesToMake) {
                 PlayerInput input = inputBuffer.Dequeue();
                 PlayerAction playerActions = sim.Move(input, Time.fixedTime - Time.fixedDeltaTime * (movesToMake - (++movesMade)));
+								bool holsterSwitched = sim.state.holster != sim.lastState.holster;
 
-                if (!playerActions.holster && !playerActions.shoot) {
+                if (!holsterSwitched && !playerActions.shoot) {
                     continue;
 
-                } else if (playerActions.holster) {
-                    player.holster = sim.state;
-                    //isHolster = !isHolster;
-                    continue;
+                } else if (holsterSwitched) {
+                    player.move = sim.state; // Updates the Move state with the new holster value
+										continue;
 
-                } else if (sim.GetUnholster() && playerActions.shoot) {
-                    player.shoot = sim.state;
+                } else if (!sim.state.holster && playerActions.shoot) {
+                    player.shoot = sim.state; // Updates the Shoot state with new shoot value
                     pool.Shoot(gunBarrelEnd, input.timestamp, gameObject.GetComponentInParent<NetworkedPlayer>().GetInstanceID());
                 }
             }
@@ -65,15 +65,9 @@ namespace Thieves.GameServer.PlayerNetworking {
         }
 
         public void SetInitialState(Vector3 position, Vector2 turn) {
-            //inputBuffer.Clear();
             PlayerState newPlayerState = PlayerState.CreateStartingState(position, turn);
             sim.SetState(newPlayerState);
             player.move = sim.state;
-            //sim.SetState(PlayerState.CreateStartingState(position, turn));
-        }
-
-        public bool IsHolster() {
-            return !sim.GetUnholster();
         }
     }
 }

@@ -54,9 +54,6 @@ namespace Thieves.Share.PlayerNetworking {
 				[SyncVar(hook = "OnChangeShoot")]
 				public PlayerState shoot;
 
-				[SyncVar(hook = "OnChangeHolster")]
-				public PlayerState holster;
-
 				[SyncVar]
 				[HideInInspector]
 				public int currentHealth;
@@ -92,19 +89,13 @@ namespace Thieves.Share.PlayerNetworking {
 				void OnChangeMove(PlayerState move) {
 						this.move = move;
 						if (client == null) return;
-						client.OnSnapshot(move, false, false);
+						client.OnSnapshot(move, false);
 				}
 
 				void OnChangeShoot(PlayerState shoot) {
 						this.shoot = shoot;
 						if (client == null) return;
-						client.OnSnapshot(shoot, true, false);
-				}
-
-				void OnChangeHolster(PlayerState holster) {
-						this.holster = holster;
-						if (client == null) return;
-						client.OnSnapshot(holster, false, true);
+						client.OnSnapshot(shoot, true);
 				}
 		}
 }

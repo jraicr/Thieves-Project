@@ -8,9 +8,8 @@ namespace Thieves.Share.PlayerController {
         public float normalSpeed = 14f;
         public float gravity = 20.0f;
         public PlayerState state;
+				public PlayerState lastState;
         private Vector3 moveDirection = Vector3.zero;
-
-        private bool unholster;
 
         private CharacterController characterController;
         private float timeBetweenBullets;
@@ -18,10 +17,10 @@ namespace Thieves.Share.PlayerController {
         private void Awake() {
             characterController = GetComponent<CharacterController>();
             timeBetweenBullets = GetComponentInParent<NetworkedPlayer>().timeBetweenBullets;
-            unholster = false;
         }
 
         public void SetState(PlayerState state) {
+						lastState = this.state;
             this.state = state;
             transform.position = new Vector3(state.position.x, state.position.y, state.position.z);
             transform.rotation = Quaternion.LookRotation(Vector3.forward);
@@ -50,35 +49,28 @@ namespace Thieves.Share.PlayerController {
 
             if (input.holster) {
                 typedHolster = true;
-                unholster = !unholster;
             }
 
-            if ((nextBullet <= 0f) && input.shoot && unholster) {
+            if ((nextBullet <= 0f) && input.shoot && !state.holster) {
                 shoot = true;
                 nextBullet += timeBetweenBullets;
             }
 
             bool stealth = input.stealth;
 
+						lastState = state;
+
             state = new PlayerState {
                 timestamp = timestamp,
                 moveNum = 1 + state.moveNum,
                 position = new Vector3(transform.position.x, transform.position.y, transform.position.z),
                 turn = (input.turn == Vector2.zero) ? state.turn : input.turn,
+								holster = typedHolster ? !state.holster : state.holster,
                 nextBullet = nextBullet
             };
 
             transform.rotation = Quaternion.LookRotation(new Vector3(state.turn.x, 0f, state.turn.y));
-
-            return new PlayerAction(shoot, typedHolster, stealth);
-        }
-
-        public bool GetUnholster() {
-            return unholster;
-        }
-
-        public void SetUnholster(bool unholster) {
-            this.unholster = unholster;
+            return new PlayerAction(shoot, stealth);
         }
     }
 }

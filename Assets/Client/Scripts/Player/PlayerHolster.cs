@@ -23,48 +23,34 @@ namespace Thieves.Client.PlayerController {
 
 				void FixedUpdate() {
 						if (networkedPlayer.isLocalPlayer) {
-								if (sim.GetUnholster()) {
+								if (!sim.state.holster) {
 										gunLine.SetPosition(0, gunBarrelEnd.position);
 										RaycastHit shootHit;
 										bool hitSomething = Physics.Raycast(gunBarrelEnd.position, gunBarrelEnd.forward, out shootHit, range, shootableMask);
 										gunLine.SetPosition(1, hitSomething ? shootHit.point : gunBarrelEnd.position + gunBarrelEnd.forward * range);
-
 										//if (hitSomething) Debug.Log("[Client] Hitting " + shootHit.collider.gameObject.name);
 								}
 						}
 				}
 
-				public void SwitchHolster(bool localPlayer = false, bool interpolatedUnholster = false) {
+				public void SwitchHolster(bool holster, bool localPlayer = true) {
+						SwitchWeapon(holster);
 
 						if (localPlayer) {
-								SwitchWeapon(sim.GetUnholster());
-
 								// Unholster effects
-								if (sim.GetUnholster() && !gunLine.enabled) {
+								if (!holster && !gunLine.enabled) {
 										gunLine.enabled = true;
 
-										// Holster effects    
-								} else if (!sim.GetUnholster() && gunLine.enabled) {
+								// Holster effects    
+								} else if (holster && gunLine.enabled) {
 										gunLine.enabled = false;
-
 								}
-
-						} else {
-								SwitchWeapon(interpolatedUnholster);
 						}
 				}
 
 
-				public void ForceHolster(bool localPlayer) {
-						SwitchWeapon(false);
-
-						if (localPlayer) {
-								gunLine.enabled = false;
-						}
-				}
-
-				private void SwitchWeapon(bool unholster) {
-						if (unholster) {
+				private void SwitchWeapon(bool holster) {
+						if (!holster) {
 								RotateWeapon(new Vector3(0f, 0f, 0f));
 								//gun.transform.localPosition = new Vector3(-1.495f, 1.144f, 0.072f);
 

@@ -5,14 +5,12 @@ namespace Thieves.Share.PlayerNetworking {
 		public struct PlayerSnapshot {
 				public PlayerState state;
 				public bool shoot;
-				public bool holster;
 				public bool stealth;
 
 				static public PlayerSnapshot Interpolate(LinkedList<PlayerSnapshot> snapshots, float time, bool removeOld) {
 						LinkedListNode<PlayerSnapshot> fromNode = snapshots.First;
 						LinkedListNode<PlayerSnapshot> toNode = fromNode.Next;
 						bool shoot = false;
-						bool holster = false;
 						bool stealth = false;
 
 						while ((toNode != null) && (toNode.Value.state.timestamp <= time)) {
@@ -20,7 +18,6 @@ namespace Thieves.Share.PlayerNetworking {
 								toNode = fromNode.Next;
 								if (!removeOld) continue;
 								shoot = shoot || fromNode.Value.shoot;
-								holster = holster || fromNode.Value.holster;
 								stealth = stealth || fromNode.Value.stealth;
 								snapshots.RemoveFirst();
 						}
@@ -37,13 +34,13 @@ namespace Thieves.Share.PlayerNetworking {
 										moveNum = 0,
 										position = Vector3.Lerp(state.position, to.position, normalizedTime),
 										turn = new Vector2(turn.x, turn.z),
+										holster = to.holster,
 										nextBullet = 0f
 								};
 						}
 						return new PlayerSnapshot {
 								state = state,
 								shoot = shoot,
-								holster = holster,
 								stealth = stealth
 						};
 				}

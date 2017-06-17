@@ -12,6 +12,7 @@ namespace Thieves.Client.PlayerNetworking {
 				private LinkedList<PlayerSnapshot> snapshots;
 				private int inputBufferSize;
 				private bool interpolatedUnholster;
+				private bool lastHolster;
 				private Animator animator;
 				private Vector3 lastPosition;
 
@@ -24,11 +25,11 @@ namespace Thieves.Client.PlayerNetworking {
 						NetworkedPlayer player = GetComponentInParent<NetworkedPlayer>();
 						inputBufferSize = player.inputBufferSize;
 						interpolatedUnholster = false;
+						lastHolster = true;
 
 						PlayerSnapshot snapshot = new PlayerSnapshot {
 								state = player.move,
-								shoot = false,
-								holster = false
+								shoot = false
 						};
 
 						snapshots.AddLast(snapshot);
@@ -42,9 +43,9 @@ namespace Thieves.Client.PlayerNetworking {
 						lastPosition = snapshot.state.position;
 						SetState(snapshot.state);
 
-						if (snapshot.holster) {
-								interpolatedUnholster = !interpolatedUnholster;
-								holster.SwitchHolster(false, interpolatedUnholster);
+						if (snapshot.state.holster != lastHolster) {
+								holster.SwitchHolster(snapshot.state.holster, false);
+								lastHolster = snapshot.state.holster;
 						}
 
 						if (!snapshot.shoot) return;
@@ -69,7 +70,6 @@ namespace Thieves.Client.PlayerNetworking {
 										stateCopy.timestamp = minTimestamp;
 										snapshotCopy.state = stateCopy;
 										snapshotCopy.shoot = false;
-										snapshotCopy.holster = false;
 										snapshots.AddLast(snapshotCopy);
 								}
 						}
@@ -86,7 +86,7 @@ namespace Thieves.Client.PlayerNetworking {
 						}
 
 						if (snapshot.state.timestamp == earlier.Value.state.timestamp) {
-								if (snapshot.shoot || snapshot.holster) {
+								if (snapshot.shoot) {
 										earlier.Value = snapshot;
 								}
 

@@ -6,6 +6,7 @@ namespace Thieves.Share.PlayerNetworking {
 				public int moveNum;
 				public Vector3 position;
 				public Vector2 turn;
+				public bool holster;
 				public float nextBullet;
 
 				static public PlayerState CreateStartingState() {
@@ -14,6 +15,7 @@ namespace Thieves.Share.PlayerNetworking {
 								moveNum = 0,
 								position = new Vector3(0, 0, 0),
 								turn = Vector3.forward,
+								holster = true,
 								nextBullet = 0f
 						};
 				}
@@ -24,6 +26,7 @@ namespace Thieves.Share.PlayerNetworking {
 								moveNum = 0,
 								position = position,
 								turn = turn,
+								holster = true,
 								nextBullet = 0f
 						};
 				}
