@@ -5,15 +5,15 @@ using Barebones.Networking;
 using Barebones.MasterServer;
 
 namespace Thieves.Client.Network {
-		public class ClientConnectionToMaster : ConnectionToMaster {
+    public class ClientConnectionToMaster : ConnectionToMaster {
 
 
-				new public void Start() {
-						base.Start();
-				}
+        new public void Start() {
+            base.Start();
+        }
 
-				public override IClientSocket GetConnection() {
-						return base.GetConnection();
-				}
-		}
+        public override IClientSocket GetConnection() {
+            return base.GetConnection();
+        }
+    }
 }

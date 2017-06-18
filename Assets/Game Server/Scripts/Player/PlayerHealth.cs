@@ -8,33 +8,33 @@ namespace Thieves.GameServer.PlayerNetworking {
     public class PlayerHealth : MonoBehaviour {
         int health;
         NetworkedPlayer player;
-				PlayerSim sim;
+        PlayerSim sim;
 
-				void Start() {
-						player = GetComponent<NetworkedPlayer>();
-						sim = GetComponentInChildren<PlayerSim>();
-						health = player.startingHealth;
-				}
+        void Start() {
+            player = GetComponent<NetworkedPlayer>();
+            sim = GetComponentInChildren<PlayerSim>();
+            health = player.startingHealth;
+        }
 
-				public void TakeDamage(int amount) {
-						if (health <= 0) return;
+        public void TakeDamage(int amount) {
+            if (health <= 0) return;
 
-						DealDamage(amount);
+            DealDamage(amount);
 
-						if (health <= 0) {
-								Debug.Log("[Server] Player " + player.name + " is dead.");
-								return;
-						}
-				}
+            if (health <= 0) {
+                Debug.Log("[Server] Player " + player.name + " is dead.");
+                return;
+            }
+        }
 
         public void ResetHealth() {
             health = player.startingHealth;
         }
 
-				private void DealDamage(int amount) {
-						health -= amount;
-						sim.ServerUpdateHealth(health, Time.fixedTime - Time.fixedDeltaTime);
-						player.health = sim.state;
-				}
+        private void DealDamage(int amount) {
+            health -= amount;
+            sim.ServerUpdateHealth(health, Time.fixedTime - Time.fixedDeltaTime);
+            player.health = sim.state;
+        }
     }
 }

@@ -7,45 +7,45 @@ using Thieves.Client.PlayerNetworking;
 using Thieves.Share.PlayerNetworking;
 
 namespace Thieves.Client.UI {
-		public class PlayerHUD : MonoBehaviour {
+    public class PlayerHUD : MonoBehaviour {
 
-				public Text hitpointText;
-				public Text statsText;
-				NetworkedPlayer player;
-				NetworkManager netManager;
+        public Text hitpointText;
+        public Text statsText;
+        NetworkedPlayer player;
+        NetworkManager netManager;
 
-				private void Start() {
-						player = FindObjectOfType<PlayerPredicted>().GetComponentInParent<NetworkedPlayer>();
-						netManager = FindObjectOfType<NetworkManager>();
-						hitpointText.text = "HP: " + player.health.hitpoints;
+        private void Start() {
+            player = FindObjectOfType<PlayerPredicted>().GetComponentInParent<NetworkedPlayer>();
+            netManager = FindObjectOfType<NetworkManager>();
+            hitpointText.text = "HP: " + player.health.hitpoints;
 
-						player.OnHealthUpdated += HandleOnHealthUpdated;
-				}
+            player.OnHealthUpdated += HandleOnHealthUpdated;
+        }
 
-				private void OnDisable() {
-						player.OnHealthUpdated -= HandleOnHealthUpdated;
-				}
+        private void OnDisable() {
+            player.OnHealthUpdated -= HandleOnHealthUpdated;
+        }
 
-				void Update() {
-						UpdateConnectionStats();
-				}
+        void Update() {
+            UpdateConnectionStats();
+        }
 
-				public void HandleOnHealthUpdated(int newHealth) {
-						hitpointText.text = "HP: " + newHealth;
-				}
+        public void HandleOnHealthUpdated(int newHealth) {
+            hitpointText.text = "HP: " + newHealth;
+        }
 
-				private void UpdateConnectionStats() {
-						#if UNITY_EDITOR
-								foreach (KeyValuePair<short, NetworkConnection.PacketStat> stat in netManager.client.GetConnectionStats()) {
-										if (stat.Key == 8) { // Updated stats for changed variables and synced
-												statsText.text = stat.Value.ToString() + "   RTT: " + netManager.client.GetRTT() + "ms.";
-												break;
-										}
-								}
-						#else
+        private void UpdateConnectionStats() {
+#if UNITY_EDITOR
+            foreach (KeyValuePair<short, NetworkConnection.PacketStat> stat in netManager.client.GetConnectionStats()) {
+                if (stat.Key == 8) { // Updated stats for changed variables and synced
+                    statsText.text = stat.Value.ToString() + "   RTT: " + netManager.client.GetRTT() + "ms.";
+                    break;
+                }
+            }
+#else
 								statsText.text = "RTT: " + netManager.client.GetRTT() + "ms. ";
-						#endif
-				}
+#endif
+        }
 
-		}
+    }
 }

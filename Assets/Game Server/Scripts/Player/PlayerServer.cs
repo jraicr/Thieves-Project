@@ -17,37 +17,37 @@ namespace Thieves.GameServer.PlayerNetworking {
         private PlayerHistory history;
         private int movesMade;
 
-        private void Awake () {
-            inputBuffer = new Queue<PlayerInput> ();
-            sim = GetComponent<PlayerSim> ();
-            player = GetComponentInParent<NetworkedPlayer> ();
+        private void Awake() {
+            inputBuffer = new Queue<PlayerInput>();
+            sim = GetComponent<PlayerSim>();
+            player = GetComponentInParent<NetworkedPlayer>();
             history = player.GetComponent<PlayerHistory>();
-            pool = FindObjectOfType<PlayerHistoryPool> ();
+            pool = FindObjectOfType<PlayerHistoryPool>();
             player.move = sim.state;
         }
 
-        private void FixedUpdate () {
+        private void FixedUpdate() {
             history.Record(transform); // It is important to computes transform before 5 input buffer completed.
             if (movesMade > 0) {
-                
+
                 if ((--movesMade) > 0) return;
             }
 
             int movesToMake = inputBuffer.Count < player.inputBufferSize ? inputBuffer.Count : player.inputBufferSize;
-           
+
             if (movesToMake == 0) return;
 
             while (movesMade < movesToMake) {
                 PlayerInput input = inputBuffer.Dequeue();
                 PlayerAction playerActions = sim.Move(input, Time.fixedTime - Time.fixedDeltaTime * (movesToMake - (++movesMade)));
-								bool holsterSwitched = sim.state.holster != sim.lastState.holster;
+                bool holsterSwitched = sim.state.holster != sim.lastState.holster;
 
                 if (!holsterSwitched && !playerActions.shoot) {
                     continue;
 
                 } else if (holsterSwitched) {
                     player.move = sim.state; // Updates the Move state with the new holster value
-										continue;
+                    continue;
 
                 } else if (!sim.state.holster && playerActions.shoot) {
                     player.shoot = sim.state; // Updates the Shoot state with new shoot value
@@ -68,7 +68,7 @@ namespace Thieves.GameServer.PlayerNetworking {
             PlayerState newPlayerState = PlayerState.CreateStartingState(position, turn, startingHealth);
             sim.SetState(newPlayerState);
             player.move = sim.state;
-						player.health = sim.state;
+            player.health = sim.state;
         }
     }
 }

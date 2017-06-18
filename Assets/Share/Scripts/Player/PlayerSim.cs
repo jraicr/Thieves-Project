@@ -8,7 +8,7 @@ namespace Thieves.Share.PlayerController {
         public float normalSpeed = 14f;
         public float gravity = 20.0f;
         public PlayerState state;
-				public PlayerState lastState;
+        public PlayerState lastState;
         private Vector3 moveDirection = Vector3.zero;
 
         private CharacterController characterController;
@@ -20,24 +20,24 @@ namespace Thieves.Share.PlayerController {
         }
 
         public void SetState(PlayerState state) {
-						lastState = this.state;
+            lastState = this.state;
             this.state = state;
             transform.position = new Vector3(state.position.x, state.position.y, state.position.z);
             transform.rotation = Quaternion.LookRotation(Vector3.forward);
         }
 
-				public void ServerUpdateHealth(int newHealth, float timestamp) {
-						lastState = state;
-						state = new PlayerState {
-								timestamp = timestamp,
-								moveNum = state.moveNum,
-								position = state.position,
-								turn = state.turn,
-								holster = state.holster,
-								nextBullet = state.nextBullet,
-								hitpoints = newHealth
-						};
-				}
+        public void ServerUpdateHealth(int newHealth, float timestamp) {
+            lastState = state;
+            state = new PlayerState {
+                timestamp = timestamp,
+                moveNum = state.moveNum,
+                position = state.position,
+                turn = state.turn,
+                holster = state.holster,
+                nextBullet = state.nextBullet,
+                hitpoints = newHealth
+            };
+        }
 
         public PlayerAction Move(PlayerInput input, float timestamp) {
 
@@ -71,16 +71,16 @@ namespace Thieves.Share.PlayerController {
 
             bool stealth = input.stealth;
 
-						lastState = state;
+            lastState = state;
 
             state = new PlayerState {
                 timestamp = timestamp,
                 moveNum = 1 + state.moveNum,
                 position = new Vector3(transform.position.x, transform.position.y, transform.position.z),
                 turn = (input.turn == Vector2.zero) ? state.turn : input.turn,
-								holster = typedHolster ? !state.holster : state.holster,
+                holster = typedHolster ? !state.holster : state.holster,
                 nextBullet = nextBullet,
-								hitpoints = state.hitpoints
+                hitpoints = state.hitpoints
             };
 
             transform.rotation = Quaternion.LookRotation(new Vector3(state.turn.x, 0f, state.turn.y));
