@@ -11,7 +11,6 @@ namespace Thieves.Client.PlayerNetworking {
 				private PlayerHolster holster;
 				private LinkedList<PlayerSnapshot> snapshots;
 				private int inputBufferSize;
-				private bool interpolatedUnholster;
 				private bool lastHolster;
 				private Animator animator;
 				private Vector3 lastPosition;
@@ -24,7 +23,6 @@ namespace Thieves.Client.PlayerNetworking {
 						animator = GetComponentInChildren<Animator>();
 						NetworkedPlayer player = GetComponentInParent<NetworkedPlayer>();
 						inputBufferSize = player.inputBufferSize;
-						interpolatedUnholster = false;
 						lastHolster = true;
 
 						PlayerSnapshot snapshot = new PlayerSnapshot {
