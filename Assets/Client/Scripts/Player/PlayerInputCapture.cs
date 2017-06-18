@@ -46,24 +46,31 @@ namespace Thieves.Client.PlayerController {
                     typedHolster = false;
                 }
 
+                Vector2 inputMove = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
                 PlayerInput input = new PlayerInput {
                     timestamp = monotonicTime.GetTime(),
-                    move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")),
+                    x = CompressFloat(inputMove.x),
+                    y = CompressFloat(inputMove.y),
                     turn = turn,
                     shoot = shoot,
                     holster = holster,
                     stealth = stealth
                 };
 
-                // Avoid input buffering if there isn't new input
-                if (input.move == Vector2.zero && input.holster == false && input.shoot == false && input.turn == lastTurn && input.stealth == false) return;
+                bool noInput = (inputMove == Vector2.zero) && (input.holster == false) && (input.shoot == false) && (input.turn == lastTurn) && (input.stealth == false);
+                if (noInput) return;
+
                 lastTurn = input.turn;
 
                 foreach (IInputProcessor inputProcessor in inputProcessors) {
                     inputProcessor.ProcessInput(input);
                 }
             }
+        }
 
+        private sbyte CompressFloat(float f) {
+            return (sbyte)(f * sbyte.MaxValue);
         }
     }
 }

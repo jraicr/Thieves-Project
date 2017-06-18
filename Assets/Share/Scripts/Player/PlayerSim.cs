@@ -40,9 +40,10 @@ namespace Thieves.Share.PlayerController {
         }
 
         public PlayerAction Move(PlayerInput input, float timestamp) {
+            Vector2 decompressedMovementInput = input.UncompressVector2(input.x, input.y);
 
             if (characterController.isGrounded) {
-                moveDirection = new Vector3(input.move.x, 0f, input.move.y).normalized;
+                moveDirection = new Vector3(decompressedMovementInput.x, 0f, decompressedMovementInput.y).normalized;
                 moveDirection *= (input.stealth ? stealthSpeed : normalSpeed);
             }
 
