@@ -10,22 +10,22 @@ namespace Thieves.GameServer.PlayerNetworking {
         NetworkedPlayer player;
 				PlayerSim sim;
 
-        void Start() {
-            player = GetComponent<NetworkedPlayer>();
+				void Start() {
+						player = GetComponent<NetworkedPlayer>();
 						sim = GetComponentInChildren<PlayerSim>();
-            health = player.startingHealth;
-        }
+						health = player.startingHealth;
+				}
 
-        public void TakeDamage(int amount) {
-            if (health <= 0) return;
+				public void TakeDamage(int amount) {
+						if (health <= 0) return;
 
 						DealDamage(amount);
 
 						if (health <= 0) {
-                Debug.Log("[Server] Player " + player.name + " is dead.");
-                return;
-            }
-        }
+								Debug.Log("[Server] Player " + player.name + " is dead.");
+								return;
+						}
+				}
 
         public void ResetHealth() {
             health = player.startingHealth;
@@ -35,7 +35,6 @@ namespace Thieves.GameServer.PlayerNetworking {
 						health -= amount;
 						sim.ServerUpdateHealth(health, Time.fixedTime - Time.fixedDeltaTime);
 						player.health = sim.state;
-
 				}
     }
 }
