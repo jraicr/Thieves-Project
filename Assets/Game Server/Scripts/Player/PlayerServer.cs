@@ -54,7 +54,7 @@ namespace Thieves.GameServer.PlayerNetworking {
                     pool.Shoot(gunBarrelEnd, input.timestamp, gameObject.GetComponentInParent<NetworkedPlayer>().GetInstanceID());
                 }
             }
-            
+
             player.move = sim.state;
         }
 
@@ -64,10 +64,11 @@ namespace Thieves.GameServer.PlayerNetworking {
             }
         }
 
-        public void SetInitialState(Vector3 position, Vector2 turn) {
-            PlayerState newPlayerState = PlayerState.CreateStartingState(position, turn);
+        public void SetInitialState(Vector3 position, Vector2 turn, int startingHealth) {
+            PlayerState newPlayerState = PlayerState.CreateStartingState(position, turn, startingHealth);
             sim.SetState(newPlayerState);
             player.move = sim.state;
+						player.health = sim.state;
         }
     }
 }

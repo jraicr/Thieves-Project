@@ -2,6 +2,7 @@ using UnityEngine.Networking;
 using UnityEngine;
 using Thieves.Client.PlayerNetworking;
 using Thieves.Client.PlayerController;
+using Thieves.Client.UI;
 using Thieves.Share.PlayerController;
 using Thieves.GameServer.PlayerNetworking;
 
@@ -54,9 +55,10 @@ namespace Thieves.Share.PlayerNetworking {
 				[SyncVar(hook = "OnChangeShoot")]
 				public PlayerState shoot;
 
-				[SyncVar]
-				[HideInInspector]
-				public int currentHealth;
+				[SyncVar(hook = "OnChangeHealth")]
+				public PlayerState health;
+				public delegate void HealthUpdate(int hitpoints);
+				public event HealthUpdate OnHealthUpdated;
 
 				private PlayerServer server;
 				private PlayerClient client;
@@ -67,13 +69,16 @@ namespace Thieves.Share.PlayerNetworking {
 						gameObject.AddComponent<PlayerHistory>();
 						gameObject.AddComponent<PlayerHealth>();
 						server = Instantiate(prefabServer, transform);
-						currentHealth = startingHealth;
 				}
 
 				// This Start() function only is called on clients.
 				[ClientCallback]
 				void Start() {
 						client = Instantiate(isLocalPlayer ? prefabPredicted : prefabInterpolated, transform);
+
+						if (isLocalPlayer) {
+								FindObjectOfType<ThievesMainMenuUI>().GetComponentInChildren<PlayerHUD>().enabled = true;
+						}
 				}
 
 				/// <summary>
@@ -96,6 +101,17 @@ namespace Thieves.Share.PlayerNetworking {
 						this.shoot = shoot;
 						if (client == null) return;
 						client.OnSnapshot(shoot, true);
+				}
+
+				void OnChangeHealth(PlayerState health) {
+						Debug.Log("Health Changed. New Health: " + health.hitpoints);
+						this.health = health;
+						if (client == null) return;
+						client.OnSnapshot(health, false);
+
+						if (OnHealthUpdated != null) {
+								OnHealthUpdated(health.hitpoints);
+						}
 				}
 		}
 }

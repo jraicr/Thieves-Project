@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Thieves.Share.PlayerNetworking;
+using Thieves.Share.PlayerController;
 
 namespace Thieves.GameServer.PlayerNetworking {
 
@@ -7,19 +8,20 @@ namespace Thieves.GameServer.PlayerNetworking {
     public class PlayerHealth : MonoBehaviour {
         int health;
         NetworkedPlayer player;
+				PlayerSim sim;
 
-        void Awake() {
+        void Start() {
             player = GetComponent<NetworkedPlayer>();
+						sim = GetComponentInChildren<PlayerSim>();
             health = player.startingHealth;
         }
 
         public void TakeDamage(int amount) {
             if (health <= 0) return;
 
-            health -= amount;
-            player.currentHealth = health;
+						DealDamage(amount);
 
-            if (health <= 0) {
+						if (health <= 0) {
                 Debug.Log("[Server] Player " + player.name + " is dead.");
                 return;
             }
@@ -27,7 +29,13 @@ namespace Thieves.GameServer.PlayerNetworking {
 
         public void ResetHealth() {
             health = player.startingHealth;
-            player.currentHealth = health;
         }
+
+				private void DealDamage(int amount) {
+						health -= amount;
+						sim.ServerUpdateHealth(health, Time.fixedTime - Time.fixedDeltaTime);
+						player.health = sim.state;
+
+				}
     }
 }

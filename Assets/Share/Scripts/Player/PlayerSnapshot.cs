@@ -35,7 +35,8 @@ namespace Thieves.Share.PlayerNetworking {
 										position = Vector3.Lerp(state.position, to.position, normalizedTime),
 										turn = new Vector2(turn.x, turn.z),
 										holster = to.holster,
-										nextBullet = 0f
+										nextBullet = 0f,
+										hitpoints = state.hitpoints
 								};
 						}
 						return new PlayerSnapshot {

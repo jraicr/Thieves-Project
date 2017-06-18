@@ -26,6 +26,19 @@ namespace Thieves.Share.PlayerController {
             transform.rotation = Quaternion.LookRotation(Vector3.forward);
         }
 
+				public void ServerUpdateHealth(int newHealth, float timestamp) {
+						lastState = state;
+						state = new PlayerState {
+								timestamp = timestamp,
+								moveNum = state.moveNum,
+								position = state.position,
+								turn = state.turn,
+								holster = state.holster,
+								nextBullet = state.nextBullet,
+								hitpoints = newHealth
+						};
+				}
+
         public PlayerAction Move(PlayerInput input, float timestamp) {
 
             if (characterController.isGrounded) {
@@ -66,7 +79,8 @@ namespace Thieves.Share.PlayerController {
                 position = new Vector3(transform.position.x, transform.position.y, transform.position.z),
                 turn = (input.turn == Vector2.zero) ? state.turn : input.turn,
 								holster = typedHolster ? !state.holster : state.holster,
-                nextBullet = nextBullet
+                nextBullet = nextBullet,
+								hitpoints = state.hitpoints
             };
 
             transform.rotation = Quaternion.LookRotation(new Vector3(state.turn.x, 0f, state.turn.y));

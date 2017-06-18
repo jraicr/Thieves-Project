@@ -26,9 +26,9 @@ namespace Thieves.GameServer.PlayerNetworking {
 
 						if (trnform == null) {
 								// Move to position
-								Spawn(player, server, spawnPos, facingDown);
+								Spawn(player, server, spawnPos, facingDown, player.startingHealth);
 						} else {
-								Spawn(player, server, trnform.position, facingDown);
+								Spawn(player, server, trnform.position, facingDown, player.startingHealth);
 						}
 
 						NetworkServer.AddPlayerForConnection(connection, player.gameObject, 0);
@@ -42,9 +42,9 @@ namespace Thieves.GameServer.PlayerNetworking {
 						}
 				}
 
-				private static void Spawn(NetworkedPlayer player, PlayerServer server, Vector3 spawnPosition, Vector2 facing) {
+				private static void Spawn(NetworkedPlayer player, PlayerServer server, Vector3 spawnPosition, Vector2 facing, int startingHealth) {
 						player.transform.position = spawnPosition;
-						server.SetInitialState(spawnPosition, facing);
+						server.SetInitialState(spawnPosition, facing, player.startingHealth);
 				}
 		}
 }
