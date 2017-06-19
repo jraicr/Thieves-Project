@@ -7,15 +7,17 @@ namespace Thieves.Client.UI {
         public GameObject registerWindow;
 
         public bool deactivateOnLogIn = true;
+        public static AuthUI Instance;
 
-        void Awake() {
+        void Start() {
             loginWindow = loginWindow ?? FindObjectOfType<LoginUi>().gameObject;
             registerWindow = registerWindow ?? FindObjectOfType<RegisterUi>().gameObject;
             Msf.Client.Auth.LoggedIn += OnLoggedIn;
 
             // In case we're already logged in 
-            if (Msf.Client.Auth.IsLoggedIn)
+            if (Msf.Client.Auth.IsLoggedIn) {
                 OnLoggedIn();
+            }
         }
 
         private void OnLoggedIn() {
@@ -34,6 +36,12 @@ namespace Thieves.Client.UI {
             if (!Msf.Client.Auth.IsLoggedIn) {
                 registerWindow.SetActive(true);
             }
+        }
+
+        protected virtual void OnDestroy() {
+            if (Instance == this)
+                Instance = null;
+            Msf.Client.Auth.LoggedIn -= OnLoggedIn;
         }
     }
 }

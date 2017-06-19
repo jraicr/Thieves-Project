@@ -55,7 +55,6 @@ namespace Thieves.Client.UI {
         protected virtual void OnDestroy() {
             if (Instance == this)
                 Instance = null;
-
             Msf.Client.Auth.LoggedOut -= OnLoggedOut;
             Msf.Client.Auth.LoggedIn -= OnLoggedIn;
         }

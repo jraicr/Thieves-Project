@@ -78,6 +78,7 @@ namespace Thieves.Share.PlayerNetworking {
 
             if (isLocalPlayer) {
                 FindObjectOfType<ThievesMainMenuUI>().GetComponentInChildren<PlayerHUD>().enabled = true;
+                FindObjectOfType<ThievesMainMenuUI>().GetComponentInChildren<IngameMenu>().enabled = true;
             }
         }
 
@@ -104,7 +105,6 @@ namespace Thieves.Share.PlayerNetworking {
         }
 
         void OnChangeHealth(PlayerState health) {
-            Debug.Log("Health Changed. New Health: " + health.hitpoints);
             this.health = health;
             if (client == null) return;
             client.OnSnapshot(health, false);

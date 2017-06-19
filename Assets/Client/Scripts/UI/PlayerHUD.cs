@@ -35,16 +35,24 @@ namespace Thieves.Client.UI {
         }
 
         private void UpdateConnectionStats() {
-#if UNITY_EDITOR
-            foreach (KeyValuePair<short, NetworkConnection.PacketStat> stat in netManager.client.GetConnectionStats()) {
-                if (stat.Key == 8) { // Updated stats for changed variables and synced
-                    statsText.text = stat.Value.ToString() + "   RTT: " + netManager.client.GetRTT() + "ms.";
-                    break;
+            #if UNITY_EDITOR
+                if (netManager.IsClientConnected()) {
+                    if (netManager.client.isConnected) {
+                        foreach (KeyValuePair<short, NetworkConnection.PacketStat> stat in netManager.client.GetConnectionStats()) {
+                            if (stat.Key == 8) { // Updated stats for changed variables and synced
+                                statsText.text = stat.Value.ToString() + "   RTT: " + netManager.client.GetRTT() + "ms.";
+                                break;
+                            }
+                        }
+                    }
                 }
-            }
-#else
-								statsText.text = "RTT: " + netManager.client.GetRTT() + "ms. ";
-#endif
+            #else
+                if (netManager.IsClientConnected()) {
+                    if (netManager.client.isConnected) {
+			            statsText.text = "RTT: " + netManager.client.GetRTT() + "ms. ";
+                    }
+                }
+            #endif
         }
 
     }

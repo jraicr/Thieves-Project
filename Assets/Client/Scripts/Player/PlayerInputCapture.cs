@@ -13,15 +13,24 @@ namespace Thieves.Client.PlayerController {
         private Vector2 lastTurn;
         private NetworkedPlayer player;
 
+        [HideInInspector]
+        public bool disabledGameInput;
+        [HideInInspector]
+        public bool escapeKeyDown;
+
         private void Awake() {
             inputProcessors = GetComponents<IInputProcessor>();
             monotonicTime = FindObjectOfType<MonotonicTime>();
             player = GetComponentInParent<NetworkedPlayer>();
             floorMask = LayerMask.GetMask("Floor");
             typedHolster = false;
+            disabledGameInput = false;
+            escapeKeyDown = false;
         }
 
         private void Update() {
+
+            CheckHudInput();
 
             if (!typedHolster) {
                 typedHolster = Input.GetButtonDown("Holster");
@@ -29,6 +38,19 @@ namespace Thieves.Client.PlayerController {
         }
 
         private void FixedUpdate() {
+
+            if (!disabledGameInput) {
+                CheckGameInput();
+            }
+        }
+
+        private void CheckHudInput() {
+            if (Input.GetKeyDown(KeyCode.Escape)) {
+                escapeKeyDown = !escapeKeyDown;
+            }
+        }
+
+        private void CheckGameInput() { 
             Vector2 turn = Vector2.zero;
             Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit floorHit;
