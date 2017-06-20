@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LogLevel: 0
   SpawnControllerLogLevel: 0
-  DefaultMachineIp: 192.168.1.9
+  DefaultMachineIp: rai.ddns.net
   DefaultExePath: 
   DefaultSpawnInBatchmode: 0
   MaxSpawnedProcesses: 25

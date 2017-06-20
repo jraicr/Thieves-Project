@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LogLevel: 2
   ReadMasterServerAddressFromCmd: 1
-  ServerIp: 192.168.1.9
+  ServerIp: rai.ddns.net
   ServerPort: 5000
   ConnectOnStart: 1
   MinTimeToConnect: 0.5

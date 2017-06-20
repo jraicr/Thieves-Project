@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logLevel: 0
-  publicIp: 127.0.0.1
+  publicIp: rai.ddns.net
   roomName: Room Name
   maxPlayers: 10
   isPublic: 1

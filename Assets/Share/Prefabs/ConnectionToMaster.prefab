@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1467346094139386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 624.0137, y: 308.8401, z: 356.90265}
+  m_LocalPosition: {x: 9.482955, y: 15.210255, z: -38.698822}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LogLevel: 2
   ReadMasterServerAddressFromCmd: 1
-  ServerIp: 192.168.1.9
+  ServerIp: rai.ddns.net
   ServerPort: 5000
   ConnectOnStart: 1
   MinTimeToConnect: 0.5
