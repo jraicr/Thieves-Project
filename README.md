@@ -1,4 +1,4 @@
-Thieves Assault Project
+﻿Thieves Assault Project
 ===================
 Este es el repositorio principal de **Thieves Assault**, un juego multijugador competitivo donde los jugadores encarnarán los bandos de ladrones y guardias.
 
@@ -32,3 +32,5 @@ Detalles a tener en cuenta
 > **Tip:** To read an english version of this document [go here](http://github.com/).
 
 ----------
+
+ola k ase
