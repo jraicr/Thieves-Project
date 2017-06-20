@@ -53,7 +53,7 @@ MonoBehaviour:
         enabledScenes:
         - filePath: Assets/Game Server/Game Server.unity
         - filePath: Assets/Share/Scene Maps/Map-Rai-Lab.unity
-        - filePath: Assets/Share/Extensions/Barebones/Demos/QuickSetup/Scenes/GameLevels/SimplePlatform.unity
+        - filePath: Assets/Share/Scene Maps/Map-Pipol-Lab.unity
     - typeName: Client
       bundleIndentifier: 
       productName: ' Thieves Assault Game Client'
@@ -65,7 +65,7 @@ MonoBehaviour:
         enabledScenes:
         - filePath: Assets/Client/Game Client.unity
         - filePath: Assets/Share/Scene Maps/Map-Rai-Lab.unity
-        - filePath: Assets/Share/Extensions/Barebones/Demos/QuickSetup/Scenes/GameLevels/SimplePlatform.unity
+        - filePath: Assets/Share/Scene Maps/Map-Pipol-Lab.unity
   _platformList:
     platforms:
     - enabled: 1
@@ -262,7 +262,7 @@ MonoBehaviour:
     showBuildInfo: 0
     hideDisabled: 1
     treeView: 0
-    selectedKeyChain: Client/PC/Windows x64
+    selectedKeyChain: Game Server/Linux/Linux Universal
   _preBuildActions:
     buildActions: []
   _postBuildActions:
