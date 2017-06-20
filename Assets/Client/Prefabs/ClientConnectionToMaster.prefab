@@ -58,4 +58,4 @@ MonoBehaviour:
   ConnectOnStart: 1
   MinTimeToConnect: 0.5
   MaxTimeToConnect: 4
-  TimeToConnect: 0.4
+  TimeToConnect: 0.5

@@ -746,22 +746,6 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnClickReconnectToMaster
       objectReference: {fileID: 0}
-    - target: {fileID: 114592835903771012, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
-        type: 2}
-      propertyPath: maps.Array.data[1].Name
-      value: Pipol Lab
-      objectReference: {fileID: 0}
-    - target: {fileID: 114592835903771012, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
-        type: 2}
-      propertyPath: maps.Array.data[1].Scene.m_SceneAsset
-      value: 
-      objectReference: {fileID: 102900000, guid: 74d572c9b5a52da47874fd52dde842ed,
-        type: 3}
-    - target: {fileID: 114592835903771012, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2,
-        type: 2}
-      propertyPath: maps.Array.data[1].Scene.m_SceneName
-      value: Map-Pipol-Lab
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5f10b0dd9e40a74db0d2f5ccc6e57d2, type: 2}
   m_IsPrefabParent: 0

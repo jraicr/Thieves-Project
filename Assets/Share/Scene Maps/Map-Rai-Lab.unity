@@ -1635,6 +1635,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114967505482223604, guid: fec20d7e47710b44d8fd6176a9855aeb,
+        type: 2}
+      propertyPath: publicIp
+      value: rai.ddns.net
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fec20d7e47710b44d8fd6176a9855aeb, type: 2}
   m_IsPrefabParent: 0
