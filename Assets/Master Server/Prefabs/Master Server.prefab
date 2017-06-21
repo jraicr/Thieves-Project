@@ -11,21 +11,6 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1492132467786536}
   m_IsPrefabParent: 1
---- !u!1 &1272578238853544
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4858320923053640}
-  m_Layer: 0
-  m_Name: Lobbies Module
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1357725280111050
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,6 +105,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1673161123323206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4058952362325626}
+  - component: {fileID: 114788088999576068}
+  m_Layer: 0
+  m_Name: Lobbies Module
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1839604118253698
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,6 +201,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4058952362325626
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1673161123323206}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 249.93921, y: -178.18524, z: 153.12463}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4496945811132554}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4105804139830424
 Transform:
   m_ObjectHideFlags: 1
@@ -284,7 +298,7 @@ Transform:
   - {fileID: 4245656424897706}
   - {fileID: 4337606867395114}
   - {fileID: 4596565370640466}
-  - {fileID: 4858320923053640}
+  - {fileID: 4058952362325626}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -340,19 +354,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4596565370640466}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4858320923053640
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1272578238853544}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 249.93921, y: -178.18524, z: 153.12463}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4496945811132554}
-  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4878213277405446
 Transform:
@@ -493,6 +494,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RegisterRoomPermissionLevel: 0
+--- !u!114 &114788088999576068
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1673161123323206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e401e71d0a64ca74e9df70f81052b6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CreateLobbiesPermissionLevel: 0
+  LogLevel: 4
+  DontAllowCreatingIfJoined: 1
+  JoinedLobbiesLimit: 1
+  SpawnersModule: {fileID: 0}
+  RoomsModule: {fileID: 0}
 --- !u!114 &114900201519076322
 MonoBehaviour:
   m_ObjectHideFlags: 1

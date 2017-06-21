@@ -150,34 +150,46 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b99c9b5841adcea4a946db2bbc7a5f36, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &478764974
+--- !u!1 &1015842644
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 478764975}
+  - component: {fileID: 1015842645}
+  - component: {fileID: 1015842646}
   m_Layer: 0
-  m_Name: Lobbies Module
+  m_Name: Lobby Factory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &478764975
+--- !u!4 &1015842645
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 478764974}
+  m_GameObject: {fileID: 1015842644}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 249.93921, y: -178.18524, z: 153.12463}
+  m_LocalPosition: {x: -40.496704, y: 37.359833, z: 0.56655884}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1538167872}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1015842646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1015842644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b53ddeb35a498947833bd9fbfcba504, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1538167871
 Prefab:
   m_ObjectHideFlags: 0
@@ -217,11 +229,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4058952362325626, guid: de68f6a631f10224694308a83d26b629, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de68f6a631f10224694308a83d26b629, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1538167872 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 4496945811132554, guid: de68f6a631f10224694308a83d26b629,
+  m_PrefabParentObject: {fileID: 4058952362325626, guid: de68f6a631f10224694308a83d26b629,
     type: 2}
   m_PrefabInternal: {fileID: 1538167871}
