@@ -12,8 +12,5 @@ EditorBuildSettings:
     path: Assets/Share/Scene Maps/Map-Rai-Lab.unity
     guid: 27900f1c81176854ebfdffb2a4f233cc
   - enabled: 1
-    path: Assets/Share/Extensions/Barebones/Assets/Barebones/Demos/QuickSetup/Scenes/GameLevels/SimplePlatform.unity
-    guid: 6655c0ba684763e4a935542b62985ac2
-  - enabled: 1
     path: Assets/Share/Scene Maps/Map-Pipol-lab.unity
-    guid: 00000000000000000000000000000000
+    guid: 74d572c9b5a52da47874fd52dde842ed
