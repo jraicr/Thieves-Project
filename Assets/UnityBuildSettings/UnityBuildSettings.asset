@@ -262,7 +262,7 @@ MonoBehaviour:
     showBuildInfo: 0
     hideDisabled: 1
     treeView: 0
-    selectedKeyChain: Game Server/Linux/Linux Universal
+    selectedKeyChain: Client/PC/Windows x64
   _preBuildActions:
     buildActions: []
   _postBuildActions:
