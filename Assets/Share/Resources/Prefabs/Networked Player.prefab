@@ -90,8 +90,7 @@ MonoBehaviour:
     type: 2}
   prefabServer: {fileID: 114687471492119702, guid: b4c6254f48726974b9925eb4861f7c4b,
     type: 2}
-  inputBufferSize: 5
+  inputBufferSize: 3
   timeBetweenBullets: 0.15
   startingHealth: 100
   playerName: 
-  currentHealth: 100
