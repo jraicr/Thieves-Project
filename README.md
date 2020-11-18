@@ -1,6 +1,6 @@
 ﻿Thieves Assault Project
 ===================
-<<Este proyecto no continua en desarrollo>>
+## Este proyecto no continua en desarrollo
 Este es el repositorio principal de **Thieves Assault**, un juego multijugador competitivo donde los jugadores encarnarán los bandos de ladrones y guardias.
 
 Introducción
